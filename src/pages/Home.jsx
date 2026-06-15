@@ -5,11 +5,11 @@ export default function Home() {
         <div className={styles.hero}>
             <div className={styles.heroContent}>
                 <span>
-                    AVAILABLE
+                    LIGHTS OUT
                 </span>
 
                 <h1>
-                    OPEN TO WORK
+                    WEB DEVELOPER
                 </h1>
 
                 <p>
