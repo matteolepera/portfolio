@@ -42,7 +42,34 @@ export default function Home() {
                         </ul>
                     </div>
                 </div>
-            </section>
+
+                <table>
+                    <caption>Stack Tech</caption>
+                    <thead>
+                        <tr>
+                            <th>1/20</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><img src="." alt="." /></td>
+                            <td>JS</td>
+                            <td>Leader</td>
+                            <td>S</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><img src="." alt="." /></td>
+                            <td>HM</td>
+                            <td>+1.5</td>
+                            <td>M</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section >
+
+
         </>
 
     )
