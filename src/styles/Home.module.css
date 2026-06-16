@@ -52,6 +52,150 @@
     font-size: 3rem;
 }
 
+.about {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 1.5rem 6rem;
+    background:
+        radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.08), transparent 40%),
+        linear-gradient(180deg, #2a2a2a 0%, #151515 100%);
+    color: #f4f1ef;
+}
+
+.aboutHeader {
+    max-width: 1200px;
+    margin: 0 auto 2.5rem;
+}
+
+.aboutHeader span {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 0.35rem;
+    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    font-family: "Changa One", sans-serif;
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.aboutHeader h2 {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1.15rem, 1.6vw, 1.55rem);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(244, 241, 239, 0.78);
+}
+
+.aboutGrid {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.timelineColumn,
+.sideColumn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.timelineColumn {
+    padding-left: 5rem;
+    max-width: 48rem;
+}
+
+.timelineBlock {
+    position: relative;
+    z-index: 1;
+}
+
+.timelineBlock h3 {
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 0.35rem;
+    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    font-family: "Changa One", sans-serif;
+    font-size: clamp(1.1rem, 1.8vw, 1.65rem);
+    line-height: 1;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.timelineList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.15rem;
+}
+
+.timelineList li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    max-width: 38rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1.1rem, 1.4vw, 1.45rem);
+    line-height: 1.1;
+    color: rgba(255, 255, 255, 0.96);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.timelineList strong {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.timelineList span {
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.sideColumn .timelineList li {
+    max-width: 28rem;
+}
+
+.skillsList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem 1.6rem;
+}
+
+.skillsList li {
+    position: relative;
+    padding-left: 0.9rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1.05rem, 1.2vw, 1.35rem);
+    line-height: 1.15;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.skillsList li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: #cfc9c4;
+}
 
 /* Responsive */
 
@@ -67,6 +211,14 @@
     .heroContent p {
         font-size: 2.6rem;
     }
+
+    .aboutGrid {
+        gap: 2.25rem;
+    }
+
+    .timelineColumn {
+        padding-left: 4rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -80,5 +232,43 @@
 
     .heroContent p {
         font-size: 2rem;
+    }
+
+    .about {
+        padding: 4rem 1rem 5rem;
+    }
+
+    .aboutGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .timelineColumn {
+        padding-left: 3.25rem;
+    }
+
+    .timelinePath {
+        left: 0.7rem;
+    }
+
+    .skillsList {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .aboutHeader span,
+    .timelineBlock h3 {
+        padding-inline: 0.75rem;
+    }
+
+    .timelineList li,
+    .skillsList li {
+        font-size: 1rem;
+    }
+
+    .timelineColumn {
+        padding-left: 2.5rem;
     }
 }

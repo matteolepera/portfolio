@@ -20,27 +20,24 @@ export default function Home() {
                 </div>
             </div>
             {/* About Me */}
-            <section>
-                <h2>About Me</h2>
-                <div>
-                    <div>
-                        <h3>Formazione</h3>
-                        <ul>
-                            <li>Boolean</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Progetti</h3>
-                        <ul>
-                            <li>Focus One</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Esperienze</h3>
-                        <ul>
-                            <li>Decathlon</li>
-                        </ul>
-                    </div>
+            <section className={styles.about} id="about">
+                <div className={styles.aboutHeader}>
+                    <span>About Me</span>
+                    <h2>Formazione</h2>
+                </div>
+
+                <div className={styles.aboutGrid}>
+                    <article className={styles.timelineColumn}>
+                        <div className={styles.timelineBlock}>
+                            <h3>Formazione</h3>
+                            <ul className={styles.timelineList}>
+                                <li>
+                                    <strong>Boolean</strong>
+                                    <span>Full Stack Web Development</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
                 </div>
 
                 <table>
@@ -67,7 +64,7 @@ export default function Home() {
                         </tr>
                     </tbody>
                 </table>
-            </section >
+            </section>
 
 
         </>
