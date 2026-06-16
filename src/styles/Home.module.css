@@ -327,6 +327,11 @@
     .timelineColumn {
         padding-left: 0;
     }
+
+    .leaderboard {
+        width: clamp(21rem, 34vw, 27rem);
+        justify-self: center;
+    }
 }
 
 @media (max-width: 768px) {
@@ -364,16 +369,21 @@
     }
 
     .leaderboard caption {
-        padding-inline: 1rem;
+        padding-inline: 0.85rem;
     }
 
     .leaderboard tbody td {
-        padding-inline: 0.7rem;
+        padding-inline: 0.55rem;
     }
 
     .leaderboard tbody td:nth-child(2) img {
         width: 2rem;
         height: 2rem;
+    }
+
+    .leaderboard {
+        width: min(100%, 22rem);
+        justify-self: center;
     }
 }
 
