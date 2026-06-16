@@ -63,8 +63,8 @@
 }
 
 .aboutHeader {
-    max-width: 1200px;
-    margin: 0 auto 2.5rem;
+    grid-area: header;
+    margin: 0;
 }
 
 .aboutHeader span {
@@ -91,17 +91,21 @@
     color: rgba(244, 241, 239, 0.78);
 }
 
-.aboutGrid {
+.aboutLayout {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+    grid-template-areas:
+        "header leaderboard"
+        "content leaderboard";
+    gap: 2rem;
+    align-items: start;
 }
 
-.timelineColumn,
-.sideColumn {
+.timelineColumn {
+    grid-area: content;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -197,6 +201,108 @@
     background: #cfc9c4;
 }
 
+.leaderboard {
+    grid-area: leaderboard;
+    width: 100%;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 0.6rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    background: #121212;
+    color: #f4f1ef;
+}
+
+.leaderboard caption {
+    padding: 1rem 1.15rem;
+    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
+    font-family: "Changa One", sans-serif;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.leaderboard thead th {
+    padding: 0.8rem 1rem;
+    background: #000;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1.1rem, 1.4vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: center;
+    color: #f4f1ef;
+}
+
+.leaderboard tbody {
+    background: #2a2a2a;
+}
+
+.leaderboard tbody tr {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.leaderboard tbody td {
+    height: 3.7rem;
+    padding: 0.55rem 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    font-weight: 600;
+    color: #f7f4f2;
+}
+
+.leaderboard tbody td:first-child {
+    width: 3.2rem;
+    text-align: center;
+    font-size: clamp(1rem, 1.25vw, 1.35rem);
+    font-weight: 800;
+    color: #f7f4f2;
+    background: #080808;
+}
+
+.leaderboard tbody tr:first-child td:first-child {
+    background: linear-gradient(180deg, #e03a2f 0%, #b71c14 100%);
+}
+
+.leaderboard tbody td:nth-child(2) {
+    width: 3.7rem;
+    padding-inline: 0.55rem 0.25rem;
+}
+
+.leaderboard tbody td:nth-child(2) img {
+    display: block;
+    width: 1.85rem;
+    height: 1.85rem;
+    object-fit: cover;
+    border-radius: 0.7rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.leaderboard tbody td:nth-child(3) {
+    width: 33%;
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.leaderboard tbody td:nth-child(4) {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.leaderboard tbody td:nth-child(5) {
+    width: 3rem;
+    text-align: center;
+    font-weight: 700;
+    color: rgba(244, 241, 239, 0.72);
+}
+
+.leaderboard tbody tr:hover td {
+    background: rgba(255, 255, 255, 0.04);
+}
+
 /* Responsive */
 
 @media (max-width: 1024px) {
@@ -212,8 +318,8 @@
         font-size: 2.6rem;
     }
 
-    .aboutGrid {
-        gap: 2.25rem;
+    .aboutLayout {
+        gap: 1.5rem;
     }
 
     .timelineColumn {
@@ -238,8 +344,12 @@
         padding: 4rem 1rem 5rem;
     }
 
-    .aboutGrid {
+    .aboutLayout {
         grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "content"
+            "leaderboard";
         gap: 2rem;
     }
 
@@ -247,12 +357,21 @@
         padding-left: 3.25rem;
     }
 
-    .timelinePath {
-        left: 0.7rem;
-    }
-
     .skillsList {
         grid-template-columns: 1fr;
+    }
+
+    .leaderboard caption {
+        padding-inline: 1rem;
+    }
+
+    .leaderboard tbody td {
+        padding-inline: 0.7rem;
+    }
+
+    .leaderboard tbody td:nth-child(2) img {
+        width: 2rem;
+        height: 2rem;
     }
 }
 
@@ -261,11 +380,6 @@
     .aboutHeader span,
     .timelineBlock h3 {
         padding-inline: 0.75rem;
-    }
-
-    .timelineList li,
-    .skillsList li {
-        font-size: 1rem;
     }
 
     .timelineColumn {
