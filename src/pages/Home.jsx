@@ -43,8 +43,15 @@ export default function Home() {
                                 <h3>Formazione</h3>
                                 <ul className={styles.timelineList}>
                                     <li>
-                                        <strong>Boolean</strong>
-                                        <span>Full Stack Web Development</span>
+                                        <strong>Master, Web Developer</strong>
+                                        <span>Percorso intensivo di sviluppo web full stack con realizzazione di
+                                            applicazioni complete, lavorando su progetti individuali e di team
+                                            in contesto strutturato.</span>
+                                    </li>
+                                    <li>
+                                        <strong>Diploma Istituto Tecnico, Informatica</strong>
+                                        <span>Durante il percorso ho acquisito le basi di programmazione e
+                                            sviluppo web.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -53,12 +60,16 @@ export default function Home() {
                                 <h3>Esperienze</h3>
                                 <ul className={styles.timelineList}>
                                     <li>
-                                        <strong>Freelance</strong>
-                                        <span>Web Design & Front-End Development</span>
+                                        <strong>Addetto Vendite</strong>
+                                        <span>Esperienza che ha consolidato comunicazione, orientamento al risultato e gestione degli obiettivi.</span>
                                     </li>
                                     <li>
-                                        <strong>Personal Projects</strong>
-                                        <span>UI experiments, landing page design, component prototyping</span>
+                                        <strong>Servizio Civile Universale</strong>
+                                        <span>Esperienza che ha rafforzato precisione, organizzazione e responsabilità.</span>
+                                    </li>
+                                    <li>
+                                        <strong>Crew Member</strong>
+                                        <span>Esperienza che mi ha insegnato disciplina, velocità decisionale e lavoro di squadra.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -69,7 +80,7 @@ export default function Home() {
                         <caption>Stack Tech</caption>
                         <thead>
                             <tr>
-                                <th colSpan="5">1/20</th>
+                                <th colSpan="5">16/53</th>
                             </tr>
                         </thead>
                         <tbody>
