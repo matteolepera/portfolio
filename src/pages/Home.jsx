@@ -35,18 +35,33 @@ export default function Home() {
                 <div className={styles.aboutLayout}>
                     <div className={styles.aboutHeader}>
                         <span>About Me</span>
-                        <h2>Formazione</h2>
                     </div>
 
                     <article className={styles.timelineColumn}>
-                        <div className={styles.timelineBlock}>
-                            <h3>Formazione</h3>
-                            <ul className={styles.timelineList}>
-                                <li>
-                                    <strong>Boolean</strong>
-                                    <span>Full Stack Web Development</span>
-                                </li>
-                            </ul>
+                        <div className={styles.timelineListsGrid}>
+                            <div className={styles.timelineBlock}>
+                                <h3>Formazione</h3>
+                                <ul className={styles.timelineList}>
+                                    <li>
+                                        <strong>Boolean</strong>
+                                        <span>Full Stack Web Development</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className={styles.timelineBlock}>
+                                <h3>Esperienze</h3>
+                                <ul className={styles.timelineList}>
+                                    <li>
+                                        <strong>Freelance</strong>
+                                        <span>Web Design & Front-End Development</span>
+                                    </li>
+                                    <li>
+                                        <strong>Personal Projects</strong>
+                                        <span>UI experiments, landing page design, component prototyping</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </article>
 

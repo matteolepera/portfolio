@@ -110,11 +110,15 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    max-width: 48rem;
+    padding-left: 0;
 }
 
-.timelineColumn {
-    padding-left: 5rem;
-    max-width: 48rem;
+.timelineListsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: start;
 }
 
 .timelineBlock {
@@ -323,7 +327,7 @@
     }
 
     .timelineColumn {
-        padding-left: 4rem;
+        padding-left: 0;
     }
 }
 
@@ -354,7 +358,11 @@
     }
 
     .timelineColumn {
-        padding-left: 3.25rem;
+        padding-left: 0;
+    }
+
+    .timelineListsGrid {
+        grid-template-columns: 1fr;
     }
 
     .skillsList {
@@ -380,9 +388,5 @@
     .aboutHeader span,
     .timelineBlock h3 {
         padding-inline: 0.75rem;
-    }
-
-    .timelineColumn {
-        padding-left: 2.5rem;
     }
 }
