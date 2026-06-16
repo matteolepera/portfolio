@@ -64,21 +64,19 @@
 
 .aboutHeader {
     grid-area: header;
-    margin: 0;
+    margin: 0 0 1rem;
+    text-align: center;
 }
 
 .aboutHeader span {
     display: inline-block;
-    margin-bottom: 0.75rem;
-    padding: 0.35rem 0.9rem;
-    border-radius: 0.35rem;
-    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
     font-family: "Changa One", sans-serif;
-    font-size: clamp(1.35rem, 2vw, 2rem);
-    letter-spacing: 0.04em;
+    font-size: clamp(2rem, 2.8vw, 3.1rem);
+    line-height: 1;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: #fff;
+    color: #f4f1ef;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .aboutHeader h2 {
@@ -98,7 +96,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
     grid-template-areas:
-        "header leaderboard"
+        "header header"
         "content leaderboard";
     gap: 2rem;
     align-items: start;
@@ -361,10 +359,6 @@
         padding-left: 0;
     }
 
-    .timelineListsGrid {
-        grid-template-columns: 1fr;
-    }
-
     .skillsList {
         grid-template-columns: 1fr;
     }
@@ -384,8 +378,10 @@
 }
 
 @media (max-width: 480px) {
+    .timelineListsGrid {
+        grid-template-columns: 1fr;
+    }
 
-    .aboutHeader span,
     .timelineBlock h3 {
         padding-inline: 0.75rem;
     }
