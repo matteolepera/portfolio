@@ -295,10 +295,22 @@
 }
 
 .leaderboard tbody td:nth-child(5) {
-    width: 3rem;
+    width: 4.1rem;
     text-align: center;
     font-weight: 700;
     color: rgba(244, 241, 239, 0.72);
+}
+
+.leaderboard tbody td:nth-child(5) img {
+    display: block;
+    width: auto;
+    height: 1.35rem;
+    max-width: 3rem;
+    margin: 0 auto;
+    object-fit: contain;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 .leaderboard tbody tr:hover td {
@@ -379,6 +391,11 @@
     .leaderboard tbody td:nth-child(2) img {
         width: 2rem;
         height: 2rem;
+    }
+
+    .leaderboard tbody td:nth-child(5) img {
+        height: 1.2rem;
+        max-width: 2.7rem;
     }
 
     .leaderboard {

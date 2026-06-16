@@ -1,15 +1,17 @@
 import styles from "../styles/Home.module.css"
 
-const createLogo = (text, background, foreground = "#ffffff") => {
-    const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-            <rect width="64" height="64" rx="14" fill="${background}"/>
-            <text x="32" y="38" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="800" fill="${foreground}">${text}</text>
-        </svg>
-    `
-
-    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`
-}
+const stackTechnologies = [
+    { position: 1, logo: "php", code: "PHP", interval: "Leader", tyres: "soft", logoColor: "#777bb3" },
+    { position: 2, logo: "laravel", code: "LAR", interval: "+0.284", tyres: "medium", logoColor: "#ff2d20" },
+    { position: 3, logo: "javascript", code: "JAV", interval: "+0.612", tyres: "soft", logoColor: "#f7df1e", logoForeground: "#111111" },
+    { position: 4, logo: "react", code: "REA", interval: "+0.944", tyres: "medium", logoColor: "#61dafb", logoForeground: "#111111" },
+    { position: 5, logo: "bootstrap", code: "BOO", interval: "+1.288", tyres: "hard", logoColor: "#7952b3" },
+    { position: 6, logo: "nodejs", code: "NOD", interval: "+1.633", tyres: "hard", logoColor: "#3c873a" },
+    { position: 7, logo: "expressjs", code: "EXP", interval: "+1.981", tyres: "medium", logoColor: "#1f1f1f" },
+    { position: 8, logo: "html", code: "HTM", interval: "+2.315", tyres: "soft", logoColor: "#e34f26" },
+    { position: 9, logo: "css", code: "CSS", interval: "+2.704", tyres: "medium", logoColor: "#1572b6" },
+    { position: 10, logo: "mysql", code: "SQL", interval: "+3.011", tyres: "hard", logoColor: "#4479a1" },
+]
 
 export default function Home() {
     return (
@@ -84,20 +86,25 @@ export default function Home() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="/images/js.png" alt="JavaScript" /></td>
-                                <td>JS</td>
-                                <td>Leader</td>
-                                <td><img src="/images/soft-symbol.png" alt="Soft tyres symbol" /></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><img src="/images/react.png" alt="React" /></td>
-                                <td>REA</td>
-                                <td>+1.500</td>
-                                <td><img src="/images/medium-symbol.png" alt="Soft tyres symbol" /></td>
-                            </tr>
+                            {stackTechnologies.map((stack) => (
+                                <tr key={stack.position}>
+                                    <td>{stack.position}</td>
+                                    <td>
+                                        <img
+                                            src={`/images/stack/${stack.logo}.png`}
+                                            alt={stack.logo}
+                                        />
+                                    </td>
+                                    <td>{stack.code}</td>
+                                    <td>{stack.interval}</td>
+                                    <td>
+                                        <img
+                                            src={`/images/tyres/${stack.tyres}.png`}
+                                            alt={stack.tyres}
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
