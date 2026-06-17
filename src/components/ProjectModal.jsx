@@ -5,7 +5,7 @@ export default function ProjectModal({ project, slideIndex, onPrev, onNext, onCl
         return null
     }
 
-    const slide = project.slides[slideIndex]
+    const image = project.images[slideIndex]
 
     return (
         <div className={styles.projectModalOverlay} role="dialog" aria-modal="true" aria-label={project.name} onClick={onClose}>
@@ -27,16 +27,9 @@ export default function ProjectModal({ project, slideIndex, onPrev, onNext, onCl
 
                     <div className={styles.projectSlide}>
                         <span className={styles.projectSlideIndex}>
-                            {String(slideIndex + 1).padStart(2, "0")} / {String(project.slides.length).padStart(2, "0")}
+                            {String(slideIndex + 1).padStart(2, "0")} / {String(project.images.length).padStart(2, "0")}
                         </span>
-                        <h4>{slide.title}</h4>
-                        <p>{slide.text}</p>
-
-                        <div className={styles.projectStack}>
-                            {project.stack.map((item) => (
-                                <span key={item}>{item}</span>
-                            ))}
-                        </div>
+                        <img src={image} alt={`${project.name} screenshot ${slideIndex + 1}`} />
                     </div>
 
                     <button type="button" className={styles.projectCarouselNav} onClick={onNext} aria-label="Next slide">
@@ -44,9 +37,9 @@ export default function ProjectModal({ project, slideIndex, onPrev, onNext, onCl
                     </button>
                 </div>
 
-                <div className={styles.projectModalFooter}>
-                    <span>{project.year}</span>
-                    <strong>{project.summary}</strong>
+                <div className={styles.projectModalDescription}>
+                    <span>Description</span>
+                    <p>{project.description}</p>
                 </div>
             </div>
         </div>

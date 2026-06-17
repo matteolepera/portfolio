@@ -45,7 +45,7 @@ export default function Home() {
         }
 
         setSlideIndex((currentSlide) =>
-            currentSlide === 0 ? activeProject.slides.length - 1 : currentSlide - 1,
+            currentSlide === 0 ? activeProject.images.length - 1 : currentSlide - 1,
         )
     }
 
@@ -55,7 +55,7 @@ export default function Home() {
         }
 
         setSlideIndex((currentSlide) =>
-            (currentSlide + 1) % activeProject.slides.length,
+            (currentSlide + 1) % activeProject.images.length,
         )
     }
 
