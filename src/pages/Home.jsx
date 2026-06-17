@@ -40,9 +40,16 @@ export default function Home() {
                     </div>
 
                     <article className={styles.timelineColumn}>
+                        <p className={styles.aboutIntro}>
+                            Ciao, sono Matteo, Junior Full Stack Web Developer con una naturale
+                            predisposizione al lavoro di squadra e al miglioramento costante.
+                            Mi distinguo per organizzazione, precisione e capacità di adattamento
+                            in contesti dinamici.
+                        </p>
+
                         <div className={styles.timelineListsGrid}>
                             <div className={styles.timelineBlock}>
-                                <h3>Formazione</h3>
+                                <h3>Academy</h3>
                                 <ul className={styles.timelineList}>
                                     <li>
                                         <strong>Master, Web Developer</strong>
@@ -59,7 +66,7 @@ export default function Home() {
                             </div>
 
                             <div className={styles.timelineBlock}>
-                                <h3>Esperienze</h3>
+                                <h3>Pit Stop</h3>
                                 <ul className={styles.timelineList}>
                                     <li>
                                         <strong>Addetto Vendite</strong>
@@ -75,6 +82,14 @@ export default function Home() {
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+
+                        <div className={styles.targetBlock}>
+                            <h3>Target</h3>
+                            <p className={styles.targetText}>
+                                Cerco realtà in cui poter crescere, mettermi alla prova e contribuire
+                                attivamente allo sviluppo di soluzioni efficaci e ben strutturate.
+                            </p>
                         </div>
                     </article>
 
@@ -108,6 +123,13 @@ export default function Home() {
                         </tbody>
                     </table>
                 </div>
+            </section>
+
+
+            {/* Projects */}
+            <section className={styles.about}>
+                <h2>Progetti</h2>
+
             </section>
 
 
