@@ -105,11 +105,8 @@ export default function Home() {
                                     </td>
                                     <td>{stack.code}</td>
                                     <td>{stack.interval}</td>
-                                    <td>
-                                        <img
-                                            src={`/images/tyres/${stack.tyres}.png`}
-                                            alt={stack.tyres}
-                                        />
+                                    <td style={{ color: `${stack.tyresColor}80` }}>
+                                        {stack.tyres}
                                     </td>
                                 </tr>
                             ))}
