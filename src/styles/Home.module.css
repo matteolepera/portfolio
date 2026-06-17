@@ -585,12 +585,22 @@
     color: #f4f1ef;
 }
 
-.projectCardMeta {
+.projectCardStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.projectCardStackBadge {
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
     font-family: "Montserrat", sans-serif;
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: rgba(244, 241, 239, 0.72);
+    color: rgba(244, 241, 239, 0.92);
 }
 
 .projectCardSummary {
@@ -609,6 +619,19 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #e0bf1c;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+}
+
+.projectCardArrow {
+    display: inline-block;
+    transition: transform 180ms ease;
+}
+
+.projectCard:hover .projectCardArrow {
+    transform: translateX(0.22rem);
 }
 
 .projectModalOverlay {
@@ -798,6 +821,27 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .projectCard:hover .projectCardPreview img {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+
+    .projectCard:hover .projectCardPreview::after {
+        opacity: 0;
+    }
+
+    .projectCardPreview img {
+        opacity: 1;
+        filter: none;
+    }
+
+    .projectCardPreview::after {
+        opacity: 0;
+    }
+}
+
 @media (hover: none) and (pointer: coarse) {
     .projectCard:hover {
         transform: none;
@@ -805,22 +849,26 @@
     }
 
     .projectCardPreview img {
-        opacity: 0.55;
+        opacity: 1;
         transform: none;
         filter: none;
     }
 
     .projectCardPreview::after {
-        opacity: 0.28;
+        opacity: 0;
     }
 
     .projectCard:hover .projectCardPreview img {
-        opacity: 0.55;
+        opacity: 1;
         transform: none;
         filter: none;
     }
 
     .projectCard:hover .projectCardPreview::after {
-        opacity: 0.28;
+        opacity: 0;
+    }
+
+    .projectCard:hover .projectCardArrow {
+        transform: none;
     }
 }

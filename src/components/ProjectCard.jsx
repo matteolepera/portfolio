@@ -8,9 +8,18 @@ export default function ProjectCard({ project, onOpen }) {
             </div>
             <span className={styles.projectCardBadge}>{project.type}</span>
             <strong className={styles.projectCardName}>{project.name}</strong>
-            <span className={styles.projectCardMeta}>{project.year}</span>
+            <div className={styles.projectCardStack}>
+                {project.stack.map((item) => (
+                    <span key={item} className={styles.projectCardStackBadge}>
+                        {item}
+                    </span>
+                ))}
+            </div>
             <p className={styles.projectCardSummary}>{project.summary}</p>
-            <span className={styles.projectCardAction}>Open project</span>
+            <span className={styles.projectCardAction}>
+                <span>View details</span>
+                <span aria-hidden="true" className={styles.projectCardArrow}>→</span>
+            </span>
         </button>
     )
 }
