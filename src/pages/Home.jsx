@@ -1,12 +1,64 @@
-{/* --Style-- */ }
-import styles from "../styles/Home.module.css";
-
-{/* --Array-- */ }
+import { useEffect, useState } from "react"
+import styles from "../styles/Home.module.css"
 import { stackTechnologies } from "../data/stackTechnologies.js";
 import { projects } from "../data/projects.js";
+import ProjectCard from "../components/ProjectCard.jsx"
+import ProjectModal from "../components/ProjectModal.jsx"
 
 
 export default function Home() {
+    const [activeProjectIndex, setActiveProjectIndex] = useState(null)
+    const [slideIndex, setSlideIndex] = useState(0)
+
+    const activeProject = activeProjectIndex === null ? null : projects[activeProjectIndex]
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (!activeProject) {
+                return
+            }
+
+            if (event.key === "Escape") {
+                setActiveProjectIndex(null)
+                setSlideIndex(0)
+            }
+        }
+
+        window.addEventListener("keydown", handleKeyDown)
+
+        return () => window.removeEventListener("keydown", handleKeyDown)
+    }, [activeProject])
+
+    const openProject = (index) => {
+        setActiveProjectIndex(index)
+        setSlideIndex(0)
+    }
+
+    const closeProject = () => {
+        setActiveProjectIndex(null)
+        setSlideIndex(0)
+    }
+
+    const previousSlide = () => {
+        if (!activeProject) {
+            return
+        }
+
+        setSlideIndex((currentSlide) =>
+            currentSlide === 0 ? activeProject.slides.length - 1 : currentSlide - 1,
+        )
+    }
+
+    const nextSlide = () => {
+        if (!activeProject) {
+            return
+        }
+
+        setSlideIndex((currentSlide) =>
+            (currentSlide + 1) % activeProject.slides.length,
+        )
+    }
+
     return (
         <>
             {/* Hero */}
@@ -117,11 +169,30 @@ export default function Home() {
 
 
             {/* Projects */}
-            <section className={styles.about}>
-                <h2>Progetti</h2>
+            <section className={styles.projectsSection} id="projects">
+                <div className={styles.projectsHeader}>
+                    <span>Projects</span>
+                    <p>Seleziona un progetto per aprire la scheda dettagliata.</p>
+                </div>
 
+                <div className={styles.projectsGrid}>
+                    {projects.map((project, index) => (
+                        <ProjectCard
+                            key={project.id}
+                            project={project}
+                            onOpen={() => openProject(index)}
+                        />
+                    ))}
+                </div>
             </section>
 
+            <ProjectModal
+                project={activeProject}
+                slideIndex={slideIndex}
+                onPrev={previousSlide}
+                onNext={nextSlide}
+                onClose={closeProject}
+            />
 
         </>
 
