@@ -9,6 +9,7 @@ import ProjectModal from "../components/ProjectModal.jsx"
 export default function Home() {
     const [activeProjectIndex, setActiveProjectIndex] = useState(null)
     const [slideIndex, setSlideIndex] = useState(0)
+    const [zoomedImage, setZoomedImage] = useState(null)
 
     const activeProject = activeProjectIndex === null ? null : projects[activeProjectIndex]
 
@@ -19,6 +20,7 @@ export default function Home() {
             }
 
             if (event.key === "Escape") {
+                setZoomedImage(null)
                 setActiveProjectIndex(null)
                 setSlideIndex(0)
             }
@@ -32,9 +34,11 @@ export default function Home() {
     const openProject = (index) => {
         setActiveProjectIndex(index)
         setSlideIndex(0)
+        setZoomedImage(null)
     }
 
     const closeProject = () => {
+        setZoomedImage(null)
         setActiveProjectIndex(null)
         setSlideIndex(0)
     }
@@ -57,6 +61,14 @@ export default function Home() {
         setSlideIndex((currentSlide) =>
             (currentSlide + 1) % activeProject.images.length,
         )
+    }
+
+    const openImageZoom = () => {
+        if (!activeProject) {
+            return
+        }
+
+        setZoomedImage(activeProject.images[slideIndex])
     }
 
     return (
@@ -191,8 +203,18 @@ export default function Home() {
                 slideIndex={slideIndex}
                 onPrev={previousSlide}
                 onNext={nextSlide}
+                onZoom={openImageZoom}
                 onClose={closeProject}
             />
+
+            {zoomedImage ? (
+                <div className={styles.projectZoomOverlay} role="dialog" aria-modal="true" aria-label="Project image zoom" onClick={() => setZoomedImage(null)}>
+                    <button className={styles.projectZoomClose} type="button" onClick={() => setZoomedImage(null)} aria-label="Close zoom">
+                        ×
+                    </button>
+                    <img src={zoomedImage} alt="Project zoomed view" onClick={(event) => event.stopPropagation()} />
+                </div>
+            ) : null}
 
         </>
 

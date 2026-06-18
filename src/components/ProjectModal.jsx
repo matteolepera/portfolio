@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.css"
 
-export default function ProjectModal({ project, slideIndex, onPrev, onNext, onClose }) {
+export default function ProjectModal({ project, slideIndex, onPrev, onNext, onZoom, onClose }) {
     if (!project) {
         return null
     }
@@ -25,12 +25,13 @@ export default function ProjectModal({ project, slideIndex, onPrev, onNext, onCl
                         ‹
                     </button>
 
-                    <div className={styles.projectSlide}>
+                    <button type="button" className={styles.projectSlide} onClick={onZoom} aria-label="Open image fullscreen">
                         <span className={styles.projectSlideIndex}>
                             {String(slideIndex + 1).padStart(2, "0")} / {String(project.images.length).padStart(2, "0")}
                         </span>
                         <img src={image} alt={`${project.name} screenshot ${slideIndex + 1}`} />
-                    </div>
+                        <span className={styles.projectSlideHint}>Zoom</span>
+                    </button>
 
                     <button type="button" className={styles.projectCarouselNav} onClick={onNext} aria-label="Next slide">
                         ›

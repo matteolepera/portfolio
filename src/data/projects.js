@@ -34,7 +34,7 @@ export const projects = [
         id: 3,
         name: "Trip&Chill",
         type: "frontend",
-        role: "Frontedn Developer",
+        role: "Frontend Developer",
         summary: "Ho contribuito allo sviluppo di Trip&Chill, una rubrica digitale pensata per il team di accompagnatori.",
         description: "Mi sono occupato della UI/UX e di alcune funzionalità chiave come un filtro dinamico per mese nella homepage, un form per l'inserimento di nuovi viaggi e un modal dedicato al menù chiamate di emergenza.",
         stack: ["JavaScript", "React", "Bootstrap", "CSS"],
