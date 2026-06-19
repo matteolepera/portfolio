@@ -9,8 +9,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayouts />}>
-            <Route element={<Maintenance />} path="/" />
-            <Route element={<Home />} path="/home" />
+            <Route element={<Maintenance />} path="/maintenance" />
+            <Route element={<Home />} path="/" />
           </Route>
         </Routes>
       </BrowserRouter>
