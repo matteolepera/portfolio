@@ -73,8 +73,8 @@ export default function Home() {
 
     const contactLinks = [
         { label: "CV", href: "#cv" },
-        { label: "LinkedIn", href: "#linkedin" },
-        { label: "GitHub", href: "#github" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/matteo-le-pera" },
+        { label: "GitHub", href: "https://github.com/matteolepera" },
     ]
 
     return (
@@ -211,13 +211,21 @@ export default function Home() {
                 </div>
 
                 <div className={styles.contactsGrid}>
-                    {contactLinks.map((link) => (
-                        <a key={link.label} className={styles.contactCard} href={link.href}>
-                            <span className={styles.contactCardLabel}>{link.label}</span>
-                            <strong>{link.label}</strong>
-                            <span className={styles.contactCardArrow} aria-hidden="true">↗</span>
-                        </a>
-                    ))}
+                    {/* CV */}
+                    <a className={styles.contactCard} href={"/cv/Matteo.LePeraV6.pdf"} download="Matteo.LePeraV6.pdf">
+                        <strong>CV</strong>
+                        <span className={styles.contactCardArrow} aria-hidden="true">↗</span>
+                    </a>
+                    {/* Linkedin */}
+                    <a className={styles.contactCard} href={"https://www.linkedin.com/in/matteo-le-pera/"}>
+                        <strong>Linkedin</strong>
+                        <span className={styles.contactCardArrow} aria-hidden="true">↗</span>
+                    </a>
+                    {/* GitHub */}
+                    <a className={styles.contactCard} href={"https://github.com/matteolepera"}>
+                        <strong>GitHub</strong>
+                        <span className={styles.contactCardArrow} aria-hidden="true">↗</span>
+                    </a>
                 </div>
             </section>
 
