@@ -71,6 +71,12 @@ export default function Home() {
         setZoomedImage(activeProject.images[slideIndex])
     }
 
+    const contactLinks = [
+        { label: "CV", href: "#cv" },
+        { label: "LinkedIn", href: "#linkedin" },
+        { label: "GitHub", href: "#github" },
+    ]
+
     return (
         <>
             {/* Hero */}
@@ -194,6 +200,23 @@ export default function Home() {
                             project={project}
                             onOpen={() => openProject(index)}
                         />
+                    ))}
+                </div>
+            </section>
+
+            <section className={styles.contactsSection} id="contacts">
+                <div className={styles.contactsHeader}>
+                    <span>Contacts</span>
+                    <p>Trovi qui i canali principali per contattarmi o approfondire il profilo.</p>
+                </div>
+
+                <div className={styles.contactsGrid}>
+                    {contactLinks.map((link) => (
+                        <a key={link.label} className={styles.contactCard} href={link.href}>
+                            <span className={styles.contactCardLabel}>{link.label}</span>
+                            <strong>{link.label}</strong>
+                            <span className={styles.contactCardArrow} aria-hidden="true">↗</span>
+                        </a>
                     ))}
                 </div>
             </section>

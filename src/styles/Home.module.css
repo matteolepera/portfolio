@@ -506,6 +506,118 @@
     gap: 1.25rem;
 }
 
+.contactsSection {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 1.5rem 6rem;
+    background:
+        radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.08), transparent 40%),
+        linear-gradient(180deg, #222222 0%, #121212 100%);
+    color: #f4f1ef;
+}
+
+.contactsHeader {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.contactsHeader span {
+    display: inline-block;
+    font-family: "Changa One", sans-serif;
+    font-size: clamp(2rem, 2.8vw, 3.1rem);
+    line-height: 1;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #f4f1ef;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.contactsHeader p {
+    margin: 0.8rem auto 0;
+    max-width: 42rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1rem, 1.25vw, 1.2rem);
+    line-height: 1.55;
+    font-weight: 700;
+    color: rgba(244, 241, 239, 0.88);
+}
+
+.contactsGrid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 1rem;
+}
+
+.contactCard {
+    position: relative;
+    min-height: 10rem;
+    padding: 1.2rem 1.2rem 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    background:
+        linear-gradient(180deg, rgba(154, 29, 22, 0.22), rgba(17, 17, 17, 0.98)),
+        #171717;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+    color: #f4f1ef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    overflow: hidden;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.contactCard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right, rgba(224, 191, 28, 0.14), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 32%);
+    pointer-events: none;
+}
+
+.contactCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 42px rgba(0, 0, 0, 0.42);
+    border-color: rgba(224, 191, 28, 0.22);
+}
+
+.contactCardLabel {
+    align-self: flex-start;
+    padding: 0.28rem 0.75rem;
+    border-radius: 0.35rem;
+    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
+    font-family: "Changa One", sans-serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.contactCard strong {
+    position: relative;
+    z-index: 1;
+    font-family: "Changa One", sans-serif;
+    font-size: clamp(1.4rem, 2vw, 1.9rem);
+    line-height: 1;
+}
+
+.contactCardArrow {
+    position: relative;
+    z-index: 1;
+    align-self: flex-end;
+    font-size: 1.25rem;
+    transition: transform 180ms ease;
+}
+
+.contactCard:hover .contactCardArrow {
+    transform: translateX(0.2rem) translateY(-0.1rem);
+}
+
 .projectCard {
     border: 0;
     border-radius: 1rem;
@@ -835,6 +947,10 @@
 
 @media (max-width: 768px) {
     .projectsSection {
+        padding: 4rem 1rem 5rem;
+    }
+
+    .contactsSection {
         padding: 4rem 1rem 5rem;
     }
 
