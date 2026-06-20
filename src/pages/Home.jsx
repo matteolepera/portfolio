@@ -80,7 +80,7 @@ export default function Home() {
     return (
         <>
             {/* Hero */}
-            <div className={styles.hero}>
+            <div className={styles.hero} id="home">
                 <div className={styles.heroContent}>
                     <span>
                         LIGHTS OUT
