@@ -1,71 +1,114 @@
 import { useEffect, useState } from "react"
+import { NavLink, useLocation } from "react-router-dom"
 import styles from "../styles/Header.module.css"
 
 const navigationItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "projects", label: "Projects" },
-    { id: "contacts", label: "Contacts" },
+    { to: "/", label: "Home", end: true },
+    { to: "/about", label: "About" },
+    { to: "/projects", label: "Projects" },
+]
+
+const contactLinks = [
+    { label: "CV", href: "/cv/Matteo.LePeraV6.pdf", download: "Matteo.LePeraV6.pdf" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/matteo-le-pera/", target: "_blank", rel: "noreferrer" },
+    { label: "GitHub", href: "https://github.com/matteolepera", target: "_blank", rel: "noreferrer" },
 ]
 
 export default function Header() {
-    const [activeSection, setActiveSection] = useState("home")
+    const [contactsOpen, setContactsOpen] = useState(false)
+    const location = useLocation()
 
     useEffect(() => {
-        const observedSections = navigationItems
-            .map((item) => document.getElementById(item.id))
-            .filter(Boolean)
+        setContactsOpen(false)
+    }, [location.pathname])
 
-        if (observedSections.length === 0) {
-            return undefined
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setContactsOpen(false)
+            }
         }
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visibleEntry = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort((firstEntry, secondEntry) => secondEntry.intersectionRatio - firstEntry.intersectionRatio)[0]
+        if (contactsOpen) {
+            document.body.style.overflow = "hidden"
+            window.addEventListener("keydown", handleKeyDown)
+        }
 
-                if (visibleEntry?.target?.id) {
-                    setActiveSection(visibleEntry.target.id)
-                }
-            },
-            {
-                root: null,
-                threshold: [0.18, 0.32, 0.5, 0.68],
-                rootMargin: "-28% 0px -42% 0px",
-            },
-        )
-
-        observedSections.forEach((section) => observer.observe(section))
-
-        return () => observer.disconnect()
-    }, [])
-
-    const handleNavigate = (sectionId) => (event) => {
-        event.preventDefault()
-        setActiveSection(sectionId)
-        document.getElementById(sectionId)?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-        })
-    }
+        return () => {
+            document.body.style.overflow = ""
+            window.removeEventListener("keydown", handleKeyDown)
+        }
+    }, [contactsOpen])
 
     return (
-        <header className={styles.header}>
-            <nav className={styles.headerNav} aria-label="Main navigation">
-                {navigationItems.map((item) => (
-                    <a
-                        key={item.id}
-                        className={`${styles.headerLink} ${activeSection === item.id ? styles.headerLinkActive : ""}`}
-                        href={`#${item.id}`}
-                        onClick={handleNavigate(item.id)}
-                        aria-current={activeSection === item.id ? "page" : undefined}
+        <>
+            <header className={styles.header}>
+                <nav className={styles.headerNav} aria-label="Main navigation">
+                    {navigationItems.map((item) => (
+                        <NavLink
+                            key={item.to}
+                            to={item.to}
+                            end={item.end}
+                            className={({ isActive }) =>
+                                `${styles.headerLink} ${isActive ? styles.headerLinkActive : ""}`
+                            }
+                        >
+                            {item.label}
+                        </NavLink>
+                    ))}
+
+                    <button
+                        type="button"
+                        className={`${styles.headerLink} ${contactsOpen ? styles.headerLinkActive : ""} ${styles.headerButton}`}
+                        onClick={() => setContactsOpen((currentValue) => !currentValue)}
                     >
-                        {item.label}
-                    </a>
-                ))}
-            </nav>
-        </header>
+                        Contacts
+                    </button>
+                </nav>
+            </header>
+
+            {contactsOpen ? (
+                <div
+                    className={styles.contactsShell}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Contacts"
+                    onClick={() => setContactsOpen(false)}
+                >
+                    <aside className={styles.contactsPanel} onClick={(event) => event.stopPropagation()}>
+                        <div className={styles.contactsPanelHeader}>
+                            <span>Contacts</span>
+                            <button
+                                type="button"
+                                className={styles.contactsClose}
+                                onClick={() => setContactsOpen(false)}
+                                aria-label="Close contacts"
+                            >
+                                ×
+                            </button>
+                        </div>
+
+                        <p>Trovi qui i canali principali per contattarmi o scaricare il CV.</p>
+
+                        <div className={styles.contactsPanelLinks}>
+                            {contactLinks.map((link) => (
+                                <a
+                                    key={link.label}
+                                    className={styles.contactsPanelLink}
+                                    href={link.href}
+                                    download={link.download}
+                                    target={link.target}
+                                    rel={link.rel}
+                                    onClick={() => setContactsOpen(false)}
+                                >
+                                    <span>{link.label}</span>
+                                    <span aria-hidden="true">↗</span>
+                                </a>
+                            ))}
+                        </div>
+                    </aside>
+                </div>
+            ) : null}
+        </>
     )
 }
