@@ -105,7 +105,7 @@
 .about {
     position: relative;
     overflow: hidden;
-    padding: 5rem 1.5rem 6rem;
+    padding: 8rem 1.5rem 6rem;
     background:
         radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.08), transparent 40%),
         linear-gradient(180deg, #090909 0%, #090909 100%);
@@ -418,7 +418,7 @@
     }
 
     .heroDescription p {
-        font-size: 2.6rem;
+        font-size: 1.3rem;
     }
 
     .aboutLayout {
@@ -449,7 +449,7 @@
     }
 
     .heroDescription p {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
     .about {
@@ -542,7 +542,7 @@
 .projectsSection {
     position: relative;
     overflow: hidden;
-    padding: 5rem 1.5rem 6rem;
+    padding: 8rem 1.5rem 6rem;
     background:
         radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.08), transparent 40%),
         linear-gradient(180deg, #090909 0%, #090909 100%);

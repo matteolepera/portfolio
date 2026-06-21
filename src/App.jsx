@@ -13,8 +13,8 @@ function App() {
           <Route element={<DefaultLayouts />}>
             <Route element={<Maintenance />} path="/maintenance" />
             <Route element={<Home />} path="/" />
-            <Route element={<About />} path="/about" />
-            <Route element={<Projects />} path="/projects" />
+            <Route element={<About />} path="/bio" />
+            <Route element={<Projects />} path="/box" />
           </Route>
         </Routes>
       </BrowserRouter>

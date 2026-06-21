@@ -3,9 +3,9 @@ import { NavLink, useLocation } from "react-router-dom"
 import styles from "../styles/Header.module.css"
 
 const navigationItems = [
-    { to: "/", label: "Home", end: true },
-    { to: "/about", label: "About" },
-    { to: "/projects", label: "Projects" },
+    { to: "/", label: "Pit Lane", end: true },
+    { to: "/bio", label: "Bio" },
+    { to: "/box", label: "Box" },
 ]
 
 const contactLinks = [
@@ -62,7 +62,7 @@ export default function Header() {
                         className={`${styles.headerLink} ${contactsOpen ? styles.headerLinkActive : ""} ${styles.headerButton}`}
                         onClick={() => setContactsOpen((currentValue) => !currentValue)}
                     >
-                        Contacts
+                        Radio
                     </button>
                 </nav>
             </header>
@@ -77,7 +77,7 @@ export default function Header() {
                 >
                     <aside className={styles.contactsPanel} onClick={(event) => event.stopPropagation()}>
                         <div className={styles.contactsPanelHeader}>
-                            <span>Contacts</span>
+                            <span>Radio</span>
                             <button
                                 type="button"
                                 className={styles.contactsClose}

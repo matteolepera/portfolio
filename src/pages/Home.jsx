@@ -6,8 +6,8 @@ export default function Home() {
             <div className={styles.sectionInner}>
                 <div className={styles.heroContent}>
                     <h1>
-                        <span>Ciao. Sono Matteo.</span>
-                        <span>Sviluppatore Web.</span>
+                        <span>Ciao, Sono Matteo.</span>
+                        <span>Faccio siti.</span>
                     </h1>
                     <div className={styles.heroDescription}>
                         <p>
