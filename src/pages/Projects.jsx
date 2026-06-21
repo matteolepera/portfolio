@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import styles from "../styles/Home.module.css"
+import styles from "../styles/Projects.module.css"
 import { projects } from "../data/projects.js"
 import ProjectCard from "../components/ProjectCard.jsx"
 import ProjectModal from "../components/ProjectModal.jsx"
