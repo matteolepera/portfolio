@@ -1,4 +1,4 @@
-import styles from "../styles/Home.module.css"
+import styles from "../styles/About.module.css"
 import { stackTechnologies } from "../data/stackTechnologies.js"
 
 export default function About() {
