@@ -5,9 +5,16 @@ export default function Home() {
         <div className={styles.hero} id="home">
             <div className={styles.sectionInner}>
                 <div className={styles.heroContent}>
-                    <span>LIGHTS OUT</span>
-                    <h1>WEB DEVELOPER</h1>
-                    <p>Matteo Le Pera</p>
+                    <h1>
+                        <span>Ciao. Sono Matteo.</span>
+                        <span>Sviluppatore Web.</span>
+                    </h1>
+                    <div className={styles.heroDescription}>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

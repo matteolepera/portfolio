@@ -34,7 +34,7 @@
     min-height: 2.8rem;
     padding: 0.7rem 1.05rem;
     border-radius: 999px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.92rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -58,7 +58,7 @@
 }
 
 .headerLinkActive {
-    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
+    background: linear-gradient(180deg, #dc0000 0%, #9a0000 100%);
     color: #ffffff;
     box-shadow: 0 10px 22px rgba(154, 29, 22, 0.24);
 }
@@ -103,8 +103,8 @@
 .contactsPanelHeader span {
     padding: 0.35rem 0.9rem;
     border-radius: 0.35rem;
-    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
-    font-family: "Changa One", sans-serif;
+    background: linear-gradient(180deg, #dc0000 0%, #9a0000 100%);
+    font-family: "Barlow Condensed", sans-serif;
     font-size: 1.1rem;
     text-transform: uppercase;
     color: #fff;
@@ -124,7 +124,7 @@
 
 .contactsPanel p {
     margin: 0;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     color: rgba(244, 241, 239, 0.84);
@@ -147,7 +147,7 @@
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.06);
     color: #f4f1ef;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.95rem;
     font-weight: 800;
     letter-spacing: 0.08em;

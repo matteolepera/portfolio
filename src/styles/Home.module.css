@@ -1,23 +1,36 @@
 /* FONT */
-@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,900&family=Barlow:wght@300;400;700&display=swap');
 
 .hero {
-    background-image: url("/images/garage-background.png");
+    background:
+        radial-gradient(circle at 70% 18%, rgba(255, 255, 255, 0.08), transparent 24%),
+        linear-gradient(
+            to bottom,
+            #dc0000 0%,
+            #dc0000 44%,
+            #ffffff 44%,
+            #ffffff 52%,
+            #0d0d0d 52%,
+            #0d0d0d 100%
+        );
     width: 100%;
     height: 100vh;
     height: 100dvh;
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 
     display: flex;
     align-items: center;
     justify-content: center;
     scroll-margin-top: 5.5rem;
+    position: relative;
+    overflow: hidden;
+}
 
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 38%, rgba(0, 0, 0, 0.76) 100%);
+    pointer-events: none;
 }
 
 .sectionInner {
@@ -43,27 +56,52 @@
 }
 
 .heroContent span {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-size: 2rem;
-    color: #ffff;
+    display: block;
 }
 
 .heroContent h1 {
-    font-family: "Changa One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #ffff;
-    font-size: 5rem;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    color: #ffffff;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    margin: 0;
+    z-index: 1;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.05em;
 }
 
-.heroContent p {
-    font-family: "Herr Von Muellerhoff", cursive;
+.heroContent h1 span {
+    display: block;
+    font-family: inherit;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.heroDescription {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.heroDescription p {
+    font-family: "Barlow Condensed", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: #DC0000;
-    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    line-height: 1.55;
+    letter-spacing: 0.02em;
+    max-width: 30rem;
+    margin: 1rem 0 0;
+    z-index: 1;
+    text-align: center;
 }
 
 .about {
@@ -72,7 +110,7 @@
     padding: 5rem 1.5rem 6rem;
     background:
         radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.08), transparent 40%),
-        linear-gradient(180deg, #2a2a2a 0%, #151515 100%);
+        linear-gradient(180deg, #090909 0%, #090909 100%);
     color: #f4f1ef;
     scroll-margin-top: 5.5rem;
 }
@@ -85,7 +123,7 @@
 
 .aboutHeader span {
     display: inline-block;
-    font-family: "Changa One", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(2rem, 2.8vw, 3.1rem);
     line-height: 1;
     letter-spacing: 0.03em;
@@ -96,7 +134,7 @@
 
 .aboutHeader h2 {
     margin: 0;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(1.15rem, 1.6vw, 1.55rem);
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -130,7 +168,7 @@
 .aboutIntro {
     margin: 0;
     max-width: 46rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: clamp(1rem, 1.25vw, 1.2rem);
     line-height: 1.55;
     font-weight: 700;
@@ -154,9 +192,9 @@
     margin: 0 0 1rem;
     padding: 0.35rem 0.9rem;
     border-radius: 0.35rem;
-    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
+    background: linear-gradient(180deg, #dc0000 0%, #9a0000 100%);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
-    font-family: "Changa One", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(1.1rem, 1.8vw, 1.65rem);
     line-height: 1;
     letter-spacing: 0.03em;
@@ -170,9 +208,9 @@
     margin: 0;
     padding: 0.35rem 0.9rem;
     border-radius: 0.35rem;
-    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
+    background: linear-gradient(180deg, #dc0000 0%, #9a0000 100%);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
-    font-family: "Changa One", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(1.1rem, 1.8vw, 1.65rem);
     line-height: 1;
     letter-spacing: 0.03em;
@@ -193,7 +231,7 @@
     flex-direction: column;
     gap: 0.15rem;
     max-width: 38rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: clamp(1.1rem, 1.4vw, 1.45rem);
     line-height: 1.1;
     color: rgba(255, 255, 255, 0.96);
@@ -220,7 +258,7 @@
 
 .targetText {
     margin: 0;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: clamp(1rem, 1.25vw, 1.2rem);
     line-height: 1.55;
     font-weight: 700;
@@ -243,7 +281,7 @@
 .skillsList li {
     position: relative;
     padding-left: 0.9rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: clamp(1.05rem, 1.2vw, 1.35rem);
     line-height: 1.15;
     color: rgba(255, 255, 255, 0.92);
@@ -275,8 +313,8 @@
 
 .leaderboard caption {
     padding: 1rem 1.15rem;
-    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
-    font-family: "Changa One", sans-serif;
+    background: linear-gradient(180deg, #dc0000 0%, #9a0000 100%);
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(1.5rem, 2vw, 2rem);
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -286,7 +324,7 @@
 .leaderboard thead th {
     padding: 0.8rem 1rem;
     background: #000;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: clamp(1.1rem, 1.4vw, 1.5rem);
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -295,7 +333,7 @@
 }
 
 .leaderboard tbody {
-    background: #2a2a2a;
+    background: #090909;
 }
 
 .leaderboard tbody tr {
@@ -306,7 +344,7 @@
     height: 3.7rem;
     padding: 0.55rem 0.8rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: clamp(0.95rem, 1.2vw, 1.15rem);
     font-weight: 600;
     color: #f7f4f2;
@@ -509,7 +547,7 @@
     padding: 5rem 1.5rem 6rem;
     background:
         radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.08), transparent 40%),
-        linear-gradient(180deg, #2a2a2a 0%, #151515 100%);
+        linear-gradient(180deg, #090909 0%, #090909 100%);
     color: #f4f1ef;
     scroll-margin-top: 5.5rem;
 }
@@ -522,7 +560,7 @@
 
 .projectsHeader span {
     display: inline-block;
-    font-family: "Changa One", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(2rem, 2.8vw, 3.1rem);
     line-height: 1;
     letter-spacing: 0.03em;
@@ -534,7 +572,7 @@
 .projectsHeader p {
     margin: 0.8rem auto 0;
     max-width: 42rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: clamp(1rem, 1.25vw, 1.2rem);
     line-height: 1.55;
     font-weight: 700;
@@ -555,7 +593,7 @@
     padding: 5rem 1.5rem 6rem;
     background:
         radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.08), transparent 40%),
-        linear-gradient(180deg, #222222 0%, #121212 100%);
+        linear-gradient(180deg, #121212 0%, #121212 100%);
     color: #f4f1ef;
     scroll-margin-top: 5.5rem;
 }
@@ -568,7 +606,7 @@
 
 .contactsHeader span {
     display: inline-block;
-    font-family: "Changa One", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(2rem, 2.8vw, 3.1rem);
     line-height: 1;
     letter-spacing: 0.03em;
@@ -580,7 +618,7 @@
 .contactsHeader p {
     margin: 0.8rem auto 0;
     max-width: 42rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: clamp(1rem, 1.25vw, 1.2rem);
     line-height: 1.55;
     font-weight: 700;
@@ -635,8 +673,8 @@
     align-self: flex-start;
     padding: 0.28rem 0.75rem;
     border-radius: 0.35rem;
-    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
-    font-family: "Changa One", sans-serif;
+    background: linear-gradient(180deg, #dc0000 0%, #9a0000 100%);
+    font-family: "Barlow Condensed", sans-serif;
     font-size: 0.95rem;
     text-transform: uppercase;
     color: #fff;
@@ -645,7 +683,7 @@
 .contactCard strong {
     position: relative;
     z-index: 1;
-    font-family: "Changa One", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(1.4rem, 2vw, 1.9rem);
     line-height: 1;
 }
@@ -726,8 +764,8 @@
     align-self: flex-start;
     padding: 0.3rem 0.8rem;
     border-radius: 0.35rem;
-    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
-    font-family: "Changa One", sans-serif;
+    background: linear-gradient(180deg, #dc0000 0%, #9a0000 100%);
+    font-family: "Barlow Condensed", sans-serif;
     font-size: 1rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -735,7 +773,7 @@
 }
 
 .projectCardName {
-    font-family: "Changa One", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(1.5rem, 2vw, 2rem);
     line-height: 1;
     color: #f4f1ef;
@@ -751,7 +789,7 @@
     padding: 0.25rem 0.55rem;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.06);
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -761,7 +799,7 @@
 
 .projectCardSummary {
     margin: 0;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 1rem;
     line-height: 1.55;
     color: rgba(244, 241, 239, 0.88);
@@ -769,12 +807,12 @@
 
 .projectCardAction {
     margin-top: auto;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.9rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #e0bf1c;
+    color: #ffc906;
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
@@ -810,12 +848,12 @@
     padding: 1.25rem;
     background:
         radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 36%),
-        linear-gradient(180deg, #262626 0%, #121212 100%);
+        linear-gradient(180deg, #111111 0%, #121212 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 26px 56px rgba(0, 0, 0, 0.5);
     color: #f4f1ef;
     scrollbar-width: thin;
-    scrollbar-color: #9a1d16 #080808;
+    scrollbar-color: #dc0000 #080808;
 }
 
 .projectModal::-webkit-scrollbar {
@@ -829,7 +867,7 @@
 
 .projectModal::-webkit-scrollbar-thumb {
     border-radius: 999px;
-    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
+    background: linear-gradient(180deg, #dc0000 0%, #9a0000 100%);
     border: 2px solid #080808;
 }
 
@@ -860,8 +898,8 @@
     align-self: flex-start;
     padding: 0.28rem 0.75rem;
     border-radius: 0.35rem;
-    background: linear-gradient(180deg, #9a1d16 0%, #6f100d 100%);
-    font-family: "Changa One", sans-serif;
+    background: linear-gradient(180deg, #dc0000 0%, #9a0000 100%);
+    font-family: "Barlow Condensed", sans-serif;
     font-size: 0.95rem;
     text-transform: uppercase;
     color: #fff;
@@ -869,14 +907,14 @@
 
 .projectModalHeader h3 {
     margin: 0;
-    font-family: "Changa One", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(1.8rem, 3vw, 2.6rem);
     line-height: 1;
 }
 
 .projectModalHeader p {
     margin: 0;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.95rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -908,7 +946,7 @@
     border: 0;
     border-radius: 0.9rem;
     padding: 0.85rem;
-    background: #2a2a2a;
+    background: #090909;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
@@ -919,7 +957,7 @@
 
 .projectSlideIndex {
     align-self: flex-start;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.85rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -941,7 +979,7 @@
     padding: 0.25rem 0.65rem;
     border-radius: 999px;
     background: rgba(0, 0, 0, 0.58);
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -974,16 +1012,16 @@
 }
 
 .projectModalDescription span {
-    font-family: "Changa One", sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: 1rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: #e0bf1c;
+    color: #ffc906;
 }
 
 .projectModalDescription p {
     margin: 0;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     color: rgba(244, 241, 239, 0.9);
