@@ -69,12 +69,11 @@ export default function Projects() {
 
     return (
         <section className={styles.projectsSection} id="projects">
+            <div className={styles.projectsHeader}>
+                <span>BOX</span>
+                <p>Seleziona un progetto per aprire la scheda dettagliata.</p>
+            </div>
             <div className={styles.sectionInner}>
-                <div className={styles.projectsHeader}>
-                    <span>Projects</span>
-                    <p>Seleziona un progetto per aprire la scheda dettagliata.</p>
-                </div>
-
                 <div className={styles.projectsGrid}>
                     {projects.map((project, index) => (
                         <ProjectCard
