@@ -52,11 +52,14 @@
 }
 
 .projectsGrid {
-    max-width: 100%;
+    max-width: 560px;
+    width: 100%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1.25rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 
@@ -454,7 +457,6 @@
         width: 100%;
     }
 
-    .projectsGrid,
     .contactsGrid {
         grid-template-columns: 1fr;
     }
@@ -489,7 +491,6 @@
         width: 100%;
     }
 
-    .projectsGrid,
     .contactsGrid {
         grid-template-columns: 1fr;
     }
