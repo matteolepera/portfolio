@@ -15,7 +15,7 @@ export const projects = [
         id: 2,
         name: "Aeterna Skin",
         role: "Full Stack Developer",
-        summary: "Ho contribuito allo sviluppo full-stack di Aeterna Skin, un e-commerce di skincare realizzato in team",
+        summary: "Ho contribuito allo sviluppo full-stack di Aeterna Skin, un e-commerce di skincare realizzato in team.",
         description: "Ho curato la progettazione iniziale del mockup su Figma, traducendo la vision del brand in un layout coerente, partendo sviluppando il mockup su Figma, per poi sviluppare lato frontend il popup di benvenuto, il componente cart preview per la visualizzazione rapida del carrello, le pagine di checkout e conferma ordine. Lato backend invece mi sono occupato della validazione dei dati in entrata, configurazione del sistema di invio email tramite Nodemailer e la risoluzione di bug legati all'invio delle email.",
         previewImage: "/images/aeternaskin/home-desktop.png",
         images: [
