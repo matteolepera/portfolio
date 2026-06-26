@@ -6,20 +6,12 @@ export default function ProjectCard({ project, onOpen }) {
             <div className={styles.projectCardPreview}>
                 <img src={project.previewImage} alt={project.name} />
             </div>
-            <span className={styles.projectCardBadge}>{project.type}</span>
-            <strong className={styles.projectCardName}>{project.name}</strong>
-            <div className={styles.projectCardStack}>
-                {project.stack.map((item) => (
-                    <span key={item} className={styles.projectCardStackBadge}>
-                        {item}
-                    </span>
-                ))}
+            <div className={styles.projectCardContent}>
+                <div className={styles.projectCardBody}>
+                    <strong className={styles.projectCardName}>{project.name}</strong>
+                    <p className={styles.projectCardSummary}>{project.summary}</p>
+                </div>
             </div>
-            <p className={styles.projectCardSummary}>{project.summary}</p>
-            <span className={styles.projectCardAction}>
-                <span>View details</span>
-                <span aria-hidden="true" className={styles.projectCardArrow}>→</span>
-            </span>
         </button>
     )
 }

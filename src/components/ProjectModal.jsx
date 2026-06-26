@@ -15,7 +15,6 @@ export default function ProjectModal({ project, slideIndex, onPrev, onNext, onZo
                 </button>
 
                 <div className={styles.projectModalHeader}>
-                    <span>{project.type}</span>
                     <h3>{project.name}</h3>
                     <p>{project.role}</p>
                 </div>
