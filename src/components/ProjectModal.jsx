@@ -1,46 +1,38 @@
 import styles from "../styles/Projects.module.css"
 
 export default function ProjectModal({ project, slideIndex, onPrev, onNext, onZoom, onClose }) {
-    if (!project) {
-        return null
-    }
+    if (!project) return null
 
     const image = project.images[slideIndex]
+    const total = project.images.length
 
     return (
         <div className={styles.projectModalOverlay} role="dialog" aria-modal="true" aria-label={project.name} onClick={onClose}>
-            <div className={styles.projectModal} onClick={(event) => event.stopPropagation()}>
-                <button className={styles.projectModalClose} type="button" onClick={onClose} aria-label="Close project">
+            <div className={styles.projectModal} onClick={(e) => e.stopPropagation()}>
+
+                <button className={styles.projectModalClose} type="button" onClick={onClose} aria-label="Chiudi">
                     ×
                 </button>
 
-                <div className={styles.projectModalHeader}>
-                    <h3>{project.name}</h3>
-                    <p>{project.role}</p>
+                <div className={styles.projectModalCarousel}>
+                    <img src={image} alt={`${project.name} screenshot ${slideIndex + 1}`} onClick={onZoom} />
+                    <button type="button" className={`${styles.projectModalNav} ${styles.projectModalNavPrev}`} onClick={onPrev} aria-label="Precedente">‹</button>
+                    <button type="button" className={`${styles.projectModalNav} ${styles.projectModalNavNext}`} onClick={onNext} aria-label="Successivo">›</button>
+                    <span className={styles.projectModalCounter}>
+                        {String(slideIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+                    </span>
                 </div>
 
-                <div className={styles.projectCarousel}>
-                    <button type="button" className={styles.projectCarouselNav} onClick={onPrev} aria-label="Previous slide">
-                        ‹
-                    </button>
-
-                    <button type="button" className={styles.projectSlide} onClick={onZoom} aria-label="Open image fullscreen">
-                        <span className={styles.projectSlideIndex}>
-                            {String(slideIndex + 1).padStart(2, "0")} / {String(project.images.length).padStart(2, "0")}
-                        </span>
-                        <img src={image} alt={`${project.name} screenshot ${slideIndex + 1}`} />
-                        <span className={styles.projectSlideHint}>Zoom</span>
-                    </button>
-
-                    <button type="button" className={styles.projectCarouselNav} onClick={onNext} aria-label="Next slide">
-                        ›
-                    </button>
+                <div className={styles.projectModalBody}>
+                    <div className={styles.projectModalMeta}>
+                        <span className={styles.projectModalRole}>{project.role}</span>
+                        <h3 className={styles.projectModalTitle}>{project.name}</h3>
+                    </div>
+                    <div className={styles.projectModalDivider} />
+                    <span className={styles.projectModalDescLabel}>Descrizione</span>
+                    <p className={styles.projectModalDesc}>{project.description}</p>
                 </div>
 
-                <div className={styles.projectModalDescription}>
-                    <span>Description</span>
-                    <p>{project.description}</p>
-                </div>
             </div>
         </div>
     )
