@@ -7,12 +7,12 @@ export default function Home() {
                 <div className={styles.heroContent}>
                     <h1>
                         <span>Ciao, Sono Matteo.</span>
-                        <span>Faccio siti.</span>
+                        <span>E Faccio siti.</span>
                     </h1>
                     <div className={styles.heroDescription}>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Non sono solo bravo, sono anche simpatico.
+                            ci provo.
                         </p>
                     </div>
                 </div>

@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+html,
+body {
+    min-height: 100dvh;
+    background: #090909;
+    overflow-x: hidden;
+}
+
+#__next {
+    min-height: 100dvh;
+    background: #090909;
+}
