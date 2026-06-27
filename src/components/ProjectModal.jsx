@@ -1,3 +1,7 @@
+// ICON
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+
 import styles from "../styles/Projects.module.css"
 
 export default function ProjectModal({ project, slideIndex, onPrev, onNext, onZoom, onClose }) {
@@ -16,8 +20,8 @@ export default function ProjectModal({ project, slideIndex, onPrev, onNext, onZo
 
                 <div className={styles.projectModalCarousel}>
                     <img src={image} alt={`${project.name} screenshot ${slideIndex + 1}`} onClick={onZoom} />
-                    <button type="button" className={`${styles.projectModalNav} ${styles.projectModalNavPrev}`} onClick={onPrev} aria-label="Precedente">‹</button>
-                    <button type="button" className={`${styles.projectModalNav} ${styles.projectModalNavNext}`} onClick={onNext} aria-label="Successivo">›</button>
+                    <button type="button" className={`${styles.projectModalNav} ${styles.projectModalNavPrev}`} onClick={onPrev} aria-label="Precedente"><FontAwesomeIcon icon={faCaretLeft} /></button>
+                    <button type="button" className={`${styles.projectModalNav} ${styles.projectModalNavNext}`} onClick={onNext} aria-label="Successivo"><FontAwesomeIcon icon={faCaretRight} /></button>
                     <span className={styles.projectModalCounter}>
                         {String(slideIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
                     </span>
