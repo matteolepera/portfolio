@@ -132,16 +132,6 @@
 
 /* Responsive */
 
-@media (max-width: 1024px) {
-    .heroContent h1 {
-        font-size: 4.6rem;
-    }
-
-    .heroDescription p {
-        font-size: 1.3rem;
-    }
-}
-
 @media (max-width: 768px) {
     .heroContent h1 {
         font-size: 3rem;
@@ -164,7 +154,7 @@
     }
 
     .heroDescription p {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
 

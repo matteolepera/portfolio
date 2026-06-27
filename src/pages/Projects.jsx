@@ -71,7 +71,7 @@ export default function Projects() {
         <section className={styles.projectsSection} id="projects">
             <div className={styles.projectsHeader}>
                 <span>BOX</span>
-                <p>Seleziona un progetto per aprire la scheda dettagliata.</p>
+                <p>Progetti completati e messi in pista.<br />Clicca per i dettagli.</p>
             </div>
             <div className={styles.sectionInner}>
                 <div className={styles.projectsGrid}>

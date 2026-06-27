@@ -6,13 +6,12 @@ export default function Home() {
             <div className={styles.sectionInner}>
                 <div className={styles.heroContent}>
                     <h1>
-                        <span>Ciao, Sono Matteo.</span>
-                        <span>E Faccio siti.</span>
+                        <span>Ciao. Sono Matteo.</span>
+                        <span>Creo siti web.</span>
                     </h1>
                     <div className={styles.heroDescription}>
                         <p>
-                            Non sono solo bravo, sono anche simpatico.
-                            ci provo.
+                            Creo interfacce pulite e funzionali, con attenzione ai dettagli.<br />E quando serve, anche con un po’ di personalità.
                         </p>
                     </div>
                 </div>

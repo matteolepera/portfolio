@@ -2,6 +2,13 @@ import { useEffect, useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import styles from "../styles/Header.module.css"
 
+// ICON
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faDownload,
+    faUpRightFromSquare,
+} from "@fortawesome/free-solid-svg-icons";
+
 const navigationItems = [
     { to: "/", label: "Pit Lane", end: true },
     { to: "/bio", label: "Bio" },
@@ -96,7 +103,7 @@ export default function Header() {
 
                         <div className={styles.contactsPanelBody}>
                             <p className={styles.contactsPanelQuote}>
-                                Trovi qui i canali principali per contattarmi o scaricare il CV
+                                Canali attivi per CV, comunicazioni dirette e repository.
                             </p>
                             <div className={styles.contactsPanelLinks}>
                                 {contactLinks.map((link) => (
@@ -110,7 +117,7 @@ export default function Header() {
                                         onClick={() => setContactsOpen(false)}
                                     >
                                         <span>{link.label}</span>
-                                        <span className={styles.contactsPanelArrow} aria-hidden="true">↗</span>
+                                        <span className={styles.contactsPanelArrow} aria-hidden="true">{link.label == "CV" ? <FontAwesomeIcon icon={faDownload} /> : <FontAwesomeIcon icon={faUpRightFromSquare} />}</span>
                                     </a>
                                 ))}
                             </div>
