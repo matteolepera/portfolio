@@ -59,13 +59,14 @@ export default function Header() {
 
                     <button
                         type="button"
-                        className={`${styles.headerLink} ${contactsOpen ? styles.headerLinkActive : ""} ${styles.headerButton}`}
+                        className={`${styles.headerLink} ${styles.headerButton}`}
                         onClick={() => setContactsOpen((currentValue) => !currentValue)}
                     >
                         Radio
                     </button>
                 </nav>
             </header>
+
 
             {contactsOpen ? (
                 <div
@@ -75,37 +76,46 @@ export default function Header() {
                     aria-label="Contacts"
                     onClick={() => setContactsOpen(false)}
                 >
-                    <aside className={styles.contactsPanel} onClick={(event) => event.stopPropagation()}>
+                    <aside className={styles.contactsPanel} onClick={(e) => e.stopPropagation()}>
+
                         <div className={styles.contactsPanelHeader}>
-                            <span>Radio</span>
+                            <span className={styles.contactsPanelNumber}>16</span>
+                            <div className={styles.contactsPanelTitleBlock}>
+                                <span className={styles.contactsPanelName}>Le Pera</span>
+                                <span className={styles.contactsPanelSub}>Team Radio</span>
+                            </div>
                             <button
                                 type="button"
                                 className={styles.contactsClose}
                                 onClick={() => setContactsOpen(false)}
-                                aria-label="Close contacts"
+                                aria-label="Chiudi"
                             >
                                 ×
                             </button>
                         </div>
 
-                        <p>Trovi qui i canali principali per contattarmi o scaricare il CV.</p>
-
-                        <div className={styles.contactsPanelLinks}>
-                            {contactLinks.map((link) => (
-                                <a
-                                    key={link.label}
-                                    className={styles.contactsPanelLink}
-                                    href={link.href}
-                                    download={link.download}
-                                    target={link.target}
-                                    rel={link.rel}
-                                    onClick={() => setContactsOpen(false)}
-                                >
-                                    <span>{link.label}</span>
-                                    <span aria-hidden="true">↗</span>
-                                </a>
-                            ))}
+                        <div className={styles.contactsPanelBody}>
+                            <p className={styles.contactsPanelQuote}>
+                                Trovi qui i canali principali per contattarmi o scaricare il CV
+                            </p>
+                            <div className={styles.contactsPanelLinks}>
+                                {contactLinks.map((link) => (
+                                    <a
+                                        key={link.label}
+                                        className={styles.contactsPanelLink}
+                                        href={link.href}
+                                        download={link.download}
+                                        target={link.target}
+                                        rel={link.rel}
+                                        onClick={() => setContactsOpen(false)}
+                                    >
+                                        <span>{link.label}</span>
+                                        <span className={styles.contactsPanelArrow} aria-hidden="true">↗</span>
+                                    </a>
+                                ))}
+                            </div>
                         </div>
+
                     </aside>
                 </div>
             ) : null}

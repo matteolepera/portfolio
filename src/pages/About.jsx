@@ -7,7 +7,7 @@ export default function About() {
             <div className={styles.sectionInner}>
                 <div className={styles.aboutLayout}>
                     <div className={styles.aboutHeader}>
-                        <span>About Me</span>
+                        <span>Bio</span>
                     </div>
 
                     <article className={styles.timelineColumn}>
