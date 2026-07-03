@@ -3,6 +3,7 @@ import styles from "../styles/Projects.module.css"
 import { projects } from "../data/projects.js"
 import ProjectCard from "../components/ProjectCard.jsx"
 import ProjectModal from "../components/ProjectModal.jsx"
+import { Helmet } from "react-helmet-async";
 
 export default function Projects() {
     const [activeProjectIndex, setActiveProjectIndex] = useState(null)
@@ -68,55 +69,62 @@ export default function Projects() {
     }
 
     return (
-        <section className={styles.projectsSection} id="projects">
-            <div className={styles.projectsHeader}>
-                <span>BOX</span>
-                <p>Progetti completati e messi in pista.<br />Clicca per i dettagli.</p>
-            </div>
-            <div className={styles.sectionInner}>
-                <div className={styles.projectsGrid}>
-                    {projects.map((project, index) => (
-                        <ProjectCard
-                            key={project.id}
-                            project={project}
-                            onOpen={() => openProject(index)}
-                        />
-                    ))}
+        <>
+            <Helmet>
+                <title>Matteo Le Pera | Box</title>
+                <meta name="description" content="Box progetti: una selezione dei lavori completati. Clicca per i dettagli." />
+            </Helmet>
+
+            <section className={styles.projectsSection} id="projects">
+                <div className={styles.projectsHeader}>
+                    <span>BOX</span>
+                    <p>Progetti completati e messi in pista.<br />Clicca per i dettagli.</p>
                 </div>
-            </div>
+                <div className={styles.sectionInner}>
+                    <div className={styles.projectsGrid}>
+                        {projects.map((project, index) => (
+                            <ProjectCard
+                                key={project.id}
+                                project={project}
+                                onOpen={() => openProject(index)}
+                            />
+                        ))}
+                    </div>
+                </div>
 
-            <ProjectModal
-                project={activeProject}
-                slideIndex={slideIndex}
-                onPrev={previousSlide}
-                onNext={nextSlide}
-                onZoom={openImageZoom}
-                onClose={closeProject}
-            />
+                <ProjectModal
+                    project={activeProject}
+                    slideIndex={slideIndex}
+                    onPrev={previousSlide}
+                    onNext={nextSlide}
+                    onZoom={openImageZoom}
+                    onClose={closeProject}
+                />
 
-            {zoomedImage ? (
-                <div
-                    className={styles.projectZoomOverlay}
-                    role="dialog"
-                    aria-modal="true"
-                    aria-label="Project image zoom"
-                    onClick={() => setZoomedImage(null)}
-                >
-                    <button
-                        className={styles.projectZoomClose}
-                        type="button"
+                {zoomedImage ? (
+                    <div
+                        className={styles.projectZoomOverlay}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="Project image zoom"
                         onClick={() => setZoomedImage(null)}
-                        aria-label="Close zoom"
                     >
-                        ×
-                    </button>
-                    <img
-                        src={zoomedImage}
-                        alt="Project zoomed view"
-                        onClick={(event) => event.stopPropagation()}
-                    />
-                </div>
-            ) : null}
-        </section>
+                        <button
+                            className={styles.projectZoomClose}
+                            type="button"
+                            onClick={() => setZoomedImage(null)}
+                            aria-label="Close zoom"
+                        >
+                            ×
+                        </button>
+                        <img
+                            src={zoomedImage}
+                            alt="Project zoomed view"
+                            onClick={(event) => event.stopPropagation()}
+                        />
+                    </div>
+                ) : null}
+            </section>
+        </>
     )
 }
