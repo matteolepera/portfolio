@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <>
             <Helmet>
-                <title>Matteo Le Pera | Web dev</title>
+                <title>Matteo Le Pera | Pit Lane</title>
                 <meta name="description" content="Portfolio di Matteo Le Pera, Junior Full Stack Web Developer. Scopri progetti, competenze e percorso professionale." />
             </Helmet>
 
