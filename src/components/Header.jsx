@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faDownload,
     faUpRightFromSquare,
+    faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
 const navigationItems = [
@@ -16,9 +17,10 @@ const navigationItems = [
 ]
 
 const contactLinks = [
-    { label: "CV", href: "/cv/Matteo.LePeraV6.pdf", download: "Matteo.LePeraV6.pdf" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/matteo-le-pera/", target: "_blank", rel: "noreferrer" },
-    { label: "GitHub", href: "https://github.com/matteolepera", target: "_blank", rel: "noreferrer" },
+    { label: "CV", href: "/cv/Matteo.LePeraV6.pdf", download: "Matteo.LePeraV6.pdf", icon: faDownload, },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/matteo-le-pera/", target: "_blank", rel: "noreferrer", icon: faUpRightFromSquare, },
+    { label: "GitHub", href: "https://github.com/matteolepera", target: "_blank", rel: "noreferrer", icon: faUpRightFromSquare, },
+    { label: "Telefono", href: "tel:+393246323270", icon: faPhone },
 ]
 
 export default function Header() {
@@ -116,8 +118,13 @@ export default function Header() {
                                         rel={link.rel}
                                         onClick={() => setContactsOpen(false)}
                                     >
-                                        <span>{link.label}</span>
-                                        <span className={styles.contactsPanelArrow} aria-hidden="true">{link.label == "CV" ? <FontAwesomeIcon icon={faDownload} /> : <FontAwesomeIcon icon={faUpRightFromSquare} />}</span>
+                                        <span>
+                                            {link.label}
+                                        </span>
+
+                                        <span className={styles.contactsPanelArrow} aria-hidden="true">
+                                            <FontAwesomeIcon icon={link.icon} />
+                                        </span>
                                     </a>
                                 ))}
                             </div>
