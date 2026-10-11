@@ -1,156 +1,176 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import styles from "../styles/Header.module.css";
 
-// ICON
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faDownload,
-  faUpRightFromSquare,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
-
-const navigationItems = [
-  { to: "/", label: "Pit Lane", end: true },
-  { to: "/bio", label: "Bio" },
-  { to: "/box", label: "Box" },
+const links = [
+  { href: "/#profilo", label: "Profilo", number: "01" },
+  { href: "/#missioni", label: "Missioni", number: "02" },
+  { href: "/#esperienza", label: "Esperienza", number: "03" },
+  { href: "/#competenze", label: "Competenze", number: "04" },
+  { href: "/#contatti", label: "Contatti", number: "05" },
 ];
 
-const contactLinks = [
-  {
-    label: "CV",
-    href: "/cv/Matteo.LePeraV6.pdf",
-    download: "Matteo.LePeraV6.pdf",
-    icon: faDownload,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/matteo-le-pera/",
-    target: "_blank",
-    rel: "noreferrer",
-    icon: faUpRightFromSquare,
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/matteolepera",
-    target: "_blank",
-    rel: "noreferrer",
-    icon: faUpRightFromSquare,
-  },
-  { label: "Telefono", href: "tel:+393246323270", icon: faPhone },
+const socials = [
+  { href: "https://www.linkedin.com/in/matteo-le-pera/", label: "LinkedIn" },
+  { href: "https://github.com/matteolepera", label: "GitHub" },
 ];
 
 export default function Header() {
-  const location = useLocation();
-  const [contactsPath, setContactsPath] = useState(null);
-  const contactsOpen = contactsPath === location.pathname;
-
-  const openContacts = () => setContactsPath(location.pathname);
-  const closeContacts = () => setContactsPath(null);
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 24);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
     const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setContactsPath(null);
-      }
+      if (event.key === "Escape") setMenuOpen(false);
     };
 
-    if (contactsOpen) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-    }
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [contactsOpen]);
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+  const solid = scrolled || menuOpen;
 
   return (
     <>
-      <header className={styles.header}>
-        <nav className={styles.headerNav} aria-label="Main navigation">
-          {navigationItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              className={({ isActive }) =>
-                `${styles.headerLink} ${isActive ? styles.headerLinkActive : ""}`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-
-          <button
-            type="button"
-            className={`${styles.headerLink} ${styles.headerButton}`}
-            onClick={contactsOpen ? closeContacts : openContacts}
+      <header
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+          solid
+            ? "border-white/10 bg-night/80 backdrop-blur-md"
+            : "border-transparent bg-transparent"
+        }`}
+      >
+        <nav
+          className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6"
+          aria-label="Navigazione principale"
+        >
+          <a
+            href="/#profilo"
+            onClick={closeMenu}
+            className="flex items-center gap-3"
           >
-            Radio
-          </button>
+            <span className="bg-linear-to-br from-orange via-pink to-purple bg-clip-text font-display text-3xl leading-none text-transparent">
+              MLP
+            </span>
+            <span className="hidden text-[10px] leading-tight font-semibold tracking-[0.3em] text-muted uppercase sm:block">
+              Full Stack
+              <br />
+              Developer
+            </span>
+          </a>
+
+          <div className="flex items-center gap-3">
+            <span
+              className="hidden tracking-widest text-gold md:block"
+              aria-label="Livello di ricercato: cinque stelle"
+            >
+              ★★★★★
+            </span>
+
+            <a
+              href="/cv/Matteo.LePeraV6.pdf"
+              download
+              className="rounded-full bg-pink px-5 py-2 text-sm font-bold tracking-wide text-night uppercase transition-colors hover:bg-orange"
+            >
+              Scarica CV
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-expanded={menuOpen}
+              aria-controls="menu-principale"
+              aria-label={menuOpen ? "Chiudi menu" : "Apri menu"}
+              className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-colors hover:border-pink"
+            >
+              <span
+                className={`absolute h-0.5 w-5 bg-ink transition-transform duration-300 ${
+                  menuOpen ? "rotate-45" : "-translate-y-1.5"
+                }`}
+              />
+              <span
+                className={`absolute h-0.5 w-5 bg-ink transition-opacity duration-300 ${
+                  menuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`absolute h-0.5 w-5 bg-ink transition-transform duration-300 ${
+                  menuOpen ? "-rotate-45" : "translate-y-1.5"
+                }`}
+              />
+            </button>
+          </div>
         </nav>
       </header>
 
-      {contactsOpen ? (
+      <div
+        id="menu-principale"
+        inert={!menuOpen}
+        className={`fixed inset-0 z-40 bg-night transition-opacity duration-500 ${
+          menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
         <div
-          className={styles.contactsShell}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Contacts"
-          onClick={() => setContactsPath(null)}
-        >
-          <aside
-            className={styles.contactsPanel}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className={styles.contactsPanelHeader}>
-              <span className={styles.contactsPanelNumber}>16</span>
-              <div className={styles.contactsPanelTitleBlock}>
-                <span className={styles.contactsPanelName}>Le Pera</span>
-                <span className={styles.contactsPanelSub}>Team Radio</span>
-              </div>
-              <button
-                type="button"
-                className={styles.contactsClose}
-                onClick={closeContacts}
-                aria-label="Chiudi"
-              >
-                ×
-              </button>
-            </div>
+          className="absolute inset-0 bg-linear-to-br from-purple/40 via-night to-pink/20"
+          aria-hidden="true"
+        />
 
-            <div className={styles.contactsPanelBody}>
-              <p className={styles.contactsPanelQuote}>
-                Canali attivi per CV, comunicazioni dirette e repository.
-              </p>
-              <div className={styles.contactsPanelLinks}>
-                {contactLinks.map((link) => (
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col justify-between px-4 pt-28 pb-10 sm:px-6">
+          <ul className="space-y-2">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="group flex items-baseline gap-4"
+                >
+                  <span className="text-sm font-semibold text-orange">
+                    {link.number}
+                  </span>
+                  <span className="font-display text-5xl text-ink uppercase transition duration-300 group-hover:translate-x-2 group-hover:text-pink sm:text-7xl">
+                    {link.label}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-wrap items-end justify-between gap-6 text-sm text-muted">
+            <p>
+              <span className="block text-xs tracking-[0.3em] text-orange uppercase">
+                Stato
+              </span>
+              Disponibile da subito · Cosenza, ibrido o remoto
+            </p>
+
+            <ul className="flex gap-6">
+              {socials.map((social) => (
+                <li key={social.href}>
                   <a
-                    key={link.label}
-                    className={styles.contactsPanelLink}
-                    href={link.href}
-                    download={link.download}
-                    target={link.target}
-                    rel={link.rel}
-                    onClick={closeContacts}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-colors hover:text-pink"
                   >
-                    <span>{link.label}</span>
-
-                    <span
-                      className={styles.contactsPanelArrow}
-                      aria-hidden="true"
-                    >
-                      <FontAwesomeIcon icon={link.icon} />
-                    </span>
+                    {social.label} ↗
                   </a>
-                ))}
-              </div>
-            </div>
-          </aside>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      ) : null}
+      </div>
     </>
   );
 }
