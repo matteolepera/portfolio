@@ -1,13 +1,33 @@
 @import "tailwindcss";
 
-html,
-body {
-  min-height: 100dvh;
-  background: #090909;
-  overflow-x: hidden;
+@theme {
+  /* Sfondi */
+  --color-night: #1e0033;
+  --color-card: #2a0b45;
+
+  /* Testi */
+  --color-ink: #f3e9ff;
+  --color-muted: #b9a3d9;
+
+  /* Accenti GTA 6 */
+  --color-pink: #ff1fa9;
+  --color-orange: #ffa24e;
+  --color-gold: #ffc857;
+  --color-purple: #7a4bb0;
+
+  /* LinkedIn */
+  --color-linkedin: #0a66c2;
+
+  /* Font: testo stile LinkedIn, titoli stile GTA */
+  --font-sans:
+    system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Anton", "Impact", sans-serif;
 }
 
-#__next {
+body {
   min-height: 100dvh;
-  background: #090909;
+  overflow-x: hidden;
+  background: var(--color-night);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
 }
