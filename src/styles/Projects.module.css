@@ -1,454 +1,457 @@
 /*------- FONT -------*/
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,900&family=Barlow:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,900&family=Barlow:wght@300;400;700&display=swap");
 
 .projectsSection {
-    position: relative;
-    overflow: hidden;
-    padding: 8rem 1.5rem 6rem;
-    background:
-        radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.08), transparent 40%),
-        linear-gradient(180deg, #090909 0%, #090909 100%);
-    color: #f4f1ef;
-    scroll-margin-top: 5.5rem;
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 1.5rem 6rem;
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(255, 255, 255, 0.08),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #090909 0%, #090909 100%);
+  color: #f4f1ef;
+  scroll-margin-top: 5.5rem;
 }
 
 .sectionInner {
-    width: min(calc(100% - 2rem), 1120px);
-    margin: 0 auto;
+  width: min(calc(100% - 2rem), 1120px);
+  margin: 0 auto;
 }
 
 .sectionInner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
 }
 
 .projectsHeader {
-    max-width: 100%;
-    margin: 0 auto 2rem;
-    text-align: center;
+  max-width: 100%;
+  margin: 0 auto 2rem;
+  text-align: center;
 }
 
 .projectsHeader span {
-    display: inline-block;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(2rem, 2.8vw, 3.1rem);
-    line-height: 1;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: #f4f1ef;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  display: inline-block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(2rem, 2.8vw, 3.1rem);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #f4f1ef;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .projectsHeader p {
-    margin: 0.8rem auto 0;
-    max-width: 42rem;
-    font-family: "Barlow", sans-serif;
-    font-size: clamp(1rem, 1.25vw, 1.2rem);
-    line-height: 1.55;
-    font-weight: 700;
-    color: rgba(244, 241, 239, 0.88);
+  margin: 0.8rem auto 0;
+  max-width: 42rem;
+  font-family: "Barlow", sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.55;
+  font-weight: 700;
+  color: rgba(244, 241, 239, 0.88);
 }
 
 .projectsGrid {
-    max-width: 666px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    padding: 0 1rem;
-    box-sizing: border-box;
+  max-width: 666px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
-
 .projectZoomOverlay {
-    position: fixed;
-    inset: 0;
-    z-index: 60;
-    background: rgba(0, 0, 0, 0.92);
-    backdrop-filter: blur(8px);
-    display: grid;
-    place-items: center;
-    padding: 1rem;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
 }
 
 .projectZoomOverlay img {
-    width: min(100%, 94vw);
-    height: auto;
-    max-height: 92vh;
-    object-fit: contain;
-    border-radius: 1rem;
-    box-shadow: 0 26px 56px rgba(0, 0, 0, 0.6);
+  width: min(100%, 94vw);
+  height: auto;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 1rem;
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.6);
 }
 
 .projectZoomClose {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    border: 0;
-    background: transparent;
-    color: #f4f1ef;
-    font-size: 2.5rem;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 61;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border: 0;
+  background: transparent;
+  color: #f4f1ef;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 61;
 }
 
 .projectCard {
-    position: relative;
-    border-radius: 1rem;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
-    aspect-ratio: 16 / 9;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    transition: transform 180ms ease, box-shadow 180ms ease;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
-
 .projectCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 22px 42px rgba(0, 0, 0, 0.42);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 42px rgba(0, 0, 0, 0.42);
 }
 
 .projectCardPreview {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .projectCardPreview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 300ms ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease;
 }
 
 .projectCard:hover .projectCardPreview img {
-    transform: scale(1.04);
+  transform: scale(1.04);
 }
 
 .projectCardPreview::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top,
-            rgba(0, 0, 0, 0.88) 1%,
-            rgba(0, 0, 0, 0.4) 45%,
-            rgba(0, 0, 0, 0.05) 100%);
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 1%,
+    rgba(0, 0, 0, 0.4) 45%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
 }
 
 .projectCardBody {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .projectCardName {
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(1.3rem, 2vw, 1.8rem);
-    line-height: 1;
-    color: #f4f1ef;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  line-height: 1;
+  color: #f4f1ef;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .projectCardContent {
-    position: relative;
-    z-index: 2;
-    padding: 1.2rem 1.25rem 1.25rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.85rem;
+  position: relative;
+  z-index: 2;
+  padding: 1.2rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.85rem;
 }
 
 .projectCardSummary {
-    margin: 0;
-    font-family: "Barlow", sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(244, 241, 239, 0.88);
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  font-family: "Barlow", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(244, 241, 239, 0.88);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
 }
 
 .projectCardArrow {
-    display: inline-block;
-    transition: transform 180ms ease;
+  display: inline-block;
+  transition: transform 180ms ease;
 }
 
 .projectCard:hover .projectCardArrow {
-    transform: translateX(0.22rem);
+  transform: translateX(0.22rem);
 }
 
 .sectionInner {
-    width: min(calc(100% - 1.5rem), 960px);
+  width: min(calc(100% - 1.5rem), 960px);
 }
 
 .projectCard:hover .projectCardPreview img {
-    opacity: 1;
-    transform: none;
-    filter: none;
+  opacity: 1;
+  transform: none;
+  filter: none;
 }
 
 .projectCardPreview img {
-    opacity: 1;
-    filter: none;
+  opacity: 1;
+  filter: none;
 }
 
 /* ------- MODAl ------- */
 .projectModalOverlay {
-    position: fixed;
-    inset: 0;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(10px);
-    display: grid;
-    place-items: center;
-    z-index: 50;
+  position: fixed;
+  inset: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  z-index: 50;
 }
 
 .projectModal {
-    position: relative;
-    width: min(100%, 480px);
-    max-height: calc(100vh - 2rem);
-    overflow-y: auto;
-    border-radius: 14px;
-    background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #f4f1ef;
-    scrollbar-width: thin;
-    scrollbar-color: #dc0000 #080808;
+  position: relative;
+  width: min(100%, 480px);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  border-radius: 14px;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f4f1ef;
+  scrollbar-width: thin;
+  scrollbar-color: #dc0000 #080808;
 }
 
 .projectModal::-webkit-scrollbar {
-    width: 0.5rem;
+  width: 0.5rem;
 }
 
 .projectModal::-webkit-scrollbar-track {
-    background: #080808;
+  background: #080808;
 }
 
 .projectModal::-webkit-scrollbar-thumb {
-    background: #9a0000;
-    border-radius: 999px;
+  background: #9a0000;
+  border-radius: 999px;
 }
 
 .projectModalClose {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.85rem;
-    background: transparent;
-    border: 0;
-    color: rgba(220, 0, 0, 0.7);
-    font-size: 1.6rem;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 10;
-    transition: color 150ms ease;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.85rem;
+  background: transparent;
+  border: 0;
+  color: rgba(220, 0, 0, 0.7);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 150ms ease;
 }
 
 .projectModalClose:hover {
-    color: #f4f1ef;
+  color: #f4f1ef;
 }
 
 /* Carousel */
 .projectModalCarousel {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #090909;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #090909;
+  overflow: hidden;
 }
 
 .projectModalCarousel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    cursor: zoom-in;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
 }
 
 .projectModalNav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.55);
-    border: 0;
-    color: #f4f1ef;
-    font-size: 1.5rem;
-    width: 2.8rem;
-    height: 2.8rem;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 150ms ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.55);
+  border: 0;
+  color: #f4f1ef;
+  font-size: 1.5rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease;
 }
 
 .projectModalNav:hover {
-    background: rgba(0, 0, 0, 0.82);
+  background: rgba(0, 0, 0, 0.82);
 }
 
 .projectModalNavPrev {
-    left: 0.75rem;
+  left: 0.75rem;
 }
 
 .projectModalNavNext {
-    right: 0.75rem;
+  right: 0.75rem;
 }
 
 .projectModalCounter {
-    position: absolute;
-    bottom: 0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: "Barlow", sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(244, 241, 239, 0.6);
-    background: rgba(0, 0, 0, 0.5);
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    white-space: nowrap;
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Barlow", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 239, 0.6);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 /* Body */
 .projectModalBody {
-    padding: 1.1rem 1.25rem 1.4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+  padding: 1.1rem 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .projectModalMeta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .projectModalRole {
-    font-family: "Barlow", sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(244, 241, 239, 0.45);
+  font-family: "Barlow", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 239, 0.45);
 }
 
 .projectModalTitle {
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(1.6rem, 3vw, 2.1rem);
-    line-height: 1;
-    color: #f4f1ef;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1;
+  color: #f4f1ef;
 }
 
 .projectModalDivider {
-    width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.07);
-    margin: 0.2rem 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 0.2rem 0;
 }
 
 .projectModalDescLabel {
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #dc0000;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #dc0000;
 }
 
 .projectModalDesc {
-    font-family: "Barlow", sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(244, 241, 239, 0.8);
+  font-family: "Barlow", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(244, 241, 239, 0.8);
 }
-
 
 /* ------- RESPONSIVE -------*/
 
 @media (max-width: 768px) {
-    .projectsSection {
-        padding: 6rem 1rem 5rem;
-    }
+  .projectsSection {
+    padding: 6rem 1rem 5rem;
+  }
 
-    .sectionInner {
-        width: 100%;
-    }
+  .sectionInner {
+    width: 100%;
+  }
 
-    .contactsGrid {
-        grid-template-columns: 1fr;
-    }
+  .contactsGrid {
+    grid-template-columns: 1fr;
+  }
 
-    .projectModal {
-        width: min(100%, 34rem);
-        padding: 1rem;
-        max-height: calc(100vh - 1.25rem);
-    }
+  .projectModal {
+    width: min(100%, 34rem);
+    padding: 1rem;
+    max-height: calc(100vh - 1.25rem);
+  }
 
-    .projectsGrid {
-        max-width: 600px;
-    }
-
+  .projectsGrid {
+    max-width: 600px;
+  }
 }
 
 @media (max-width: 480px) {
-    .sectionInner {
-        width: 100%;
-    }
+  .sectionInner {
+    width: 100%;
+  }
 
-    .contactsGrid {
-        grid-template-columns: 1fr;
-    }
+  .contactsGrid {
+    grid-template-columns: 1fr;
+  }
 
-    .projectCardContent {
-        padding: 0.9rem 1rem 1rem;
-        gap: 0.65rem;
-    }
+  .projectCardContent {
+    padding: 0.9rem 1rem 1rem;
+    gap: 0.65rem;
+  }
 
-    .projectCardSummary {
-        font-size: 0.60rem;
-    }
+  .projectCardSummary {
+    font-size: 0.6rem;
+  }
 
-    .projectModal {
-        width: 100%;
-        border-radius: 10px;
-        max-height: calc(100vh - 1rem);
-    }
+  .projectModal {
+    width: 100%;
+    border-radius: 10px;
+    max-height: calc(100vh - 1rem);
+  }
 
-    .projectModalBody {
-        padding: 0.9rem 1rem 1.2rem;
-    }
+  .projectModalBody {
+    padding: 0.9rem 1rem 1.2rem;
+  }
 
-    .projectModalNav {
-        width: 2.3rem;
-        height: 2.3rem;
-        font-size: 1.2rem;
-    }
+  .projectModalNav {
+    width: 2.3rem;
+    height: 2.3rem;
+    font-size: 1.2rem;
+  }
 
-    .projectModalDesc {
-        font-size: 0.6rem;
-    }
+  .projectModalDesc {
+    font-size: 0.6rem;
+  }
 }
 
-
 @media (hover: none) and (pointer: coarse) {
-    .projectCard:hover {
-        transform: none;
-        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
-    }
+  .projectCard:hover {
+    transform: none;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+  }
 
-    .projectCard:hover .projectCardPreview img {
-        transform: none;
-    }
+  .projectCard:hover .projectCardPreview img {
+    transform: none;
+  }
 }
