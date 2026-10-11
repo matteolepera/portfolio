@@ -31,3 +31,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
 }
+
+html {
+  scroll-behavior: smooth;
+}
