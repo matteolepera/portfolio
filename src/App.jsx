@@ -1,9 +1,9 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Maintenance from "./pages/Maintenance"
-import DefaultLayouts from "./layouts/DefaultLayouts"
-import Home from "./pages/Home"
-import About from "./pages/About"
-import Projects from "./pages/Projects"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Maintenance from "./pages/Maintenance";
+import DefaultLayouts from "./layouts/DefaultLayouts";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
