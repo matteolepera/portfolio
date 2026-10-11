@@ -1,138 +1,156 @@
-import { useEffect, useState } from "react"
-import { NavLink, useLocation } from "react-router-dom"
-import styles from "../styles/Header.module.css"
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import styles from "../styles/Header.module.css";
 
 // ICON
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faDownload,
-    faUpRightFromSquare,
-    faPhone,
+  faDownload,
+  faUpRightFromSquare,
+  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
 const navigationItems = [
-    { to: "/", label: "Pit Lane", end: true },
-    { to: "/bio", label: "Bio" },
-    { to: "/box", label: "Box" },
-]
+  { to: "/", label: "Pit Lane", end: true },
+  { to: "/bio", label: "Bio" },
+  { to: "/box", label: "Box" },
+];
 
 const contactLinks = [
-    { label: "CV", href: "/cv/Matteo.LePeraV6.pdf", download: "Matteo.LePeraV6.pdf", icon: faDownload, },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/matteo-le-pera/", target: "_blank", rel: "noreferrer", icon: faUpRightFromSquare, },
-    { label: "GitHub", href: "https://github.com/matteolepera", target: "_blank", rel: "noreferrer", icon: faUpRightFromSquare, },
-    { label: "Telefono", href: "tel:+393246323270", icon: faPhone },
-]
+  {
+    label: "CV",
+    href: "/cv/Matteo.LePeraV6.pdf",
+    download: "Matteo.LePeraV6.pdf",
+    icon: faDownload,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/matteo-le-pera/",
+    target: "_blank",
+    rel: "noreferrer",
+    icon: faUpRightFromSquare,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/matteolepera",
+    target: "_blank",
+    rel: "noreferrer",
+    icon: faUpRightFromSquare,
+  },
+  { label: "Telefono", href: "tel:+393246323270", icon: faPhone },
+];
 
 export default function Header() {
-    const [contactsOpen, setContactsOpen] = useState(false)
-    const location = useLocation()
+  const location = useLocation();
+  const [contactsPath, setContactsPath] = useState(null);
+  const contactsOpen = contactsPath === location.pathname;
 
-    useEffect(() => {
-        setContactsOpen(false)
-    }, [location.pathname])
+  const openContacts = () => setContactsPath(location.pathname);
+  const closeContacts = () => setContactsPath(null);
 
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === "Escape") {
-                setContactsOpen(false)
-            }
-        }
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setContactsPath(null);
+      }
+    };
 
-        if (contactsOpen) {
-            document.body.style.overflow = "hidden"
-            window.addEventListener("keydown", handleKeyDown)
-        }
+    if (contactsOpen) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    }
 
-        return () => {
-            document.body.style.overflow = ""
-            window.removeEventListener("keydown", handleKeyDown)
-        }
-    }, [contactsOpen])
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [contactsOpen]);
 
-    return (
-        <>
-            <header className={styles.header}>
-                <nav className={styles.headerNav} aria-label="Main navigation">
-                    {navigationItems.map((item) => (
-                        <NavLink
-                            key={item.to}
-                            to={item.to}
-                            end={item.end}
-                            className={({ isActive }) =>
-                                `${styles.headerLink} ${isActive ? styles.headerLinkActive : ""}`
-                            }
-                        >
-                            {item.label}
-                        </NavLink>
-                    ))}
+  return (
+    <>
+      <header className={styles.header}>
+        <nav className={styles.headerNav} aria-label="Main navigation">
+          {navigationItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.end}
+              className={({ isActive }) =>
+                `${styles.headerLink} ${isActive ? styles.headerLinkActive : ""}`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
 
-                    <button
-                        type="button"
-                        className={`${styles.headerLink} ${styles.headerButton}`}
-                        onClick={() => setContactsOpen((currentValue) => !currentValue)}
+          <button
+            type="button"
+            className={`${styles.headerLink} ${styles.headerButton}`}
+            onClick={contactsOpen ? closeContacts : openContacts}
+          >
+            Radio
+          </button>
+        </nav>
+      </header>
+
+      {contactsOpen ? (
+        <div
+          className={styles.contactsShell}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Contacts"
+          onClick={() => setContactsPath(null)}
+        >
+          <aside
+            className={styles.contactsPanel}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={styles.contactsPanelHeader}>
+              <span className={styles.contactsPanelNumber}>16</span>
+              <div className={styles.contactsPanelTitleBlock}>
+                <span className={styles.contactsPanelName}>Le Pera</span>
+                <span className={styles.contactsPanelSub}>Team Radio</span>
+              </div>
+              <button
+                type="button"
+                className={styles.contactsClose}
+                onClick={closeContacts}
+                aria-label="Chiudi"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className={styles.contactsPanelBody}>
+              <p className={styles.contactsPanelQuote}>
+                Canali attivi per CV, comunicazioni dirette e repository.
+              </p>
+              <div className={styles.contactsPanelLinks}>
+                {contactLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    className={styles.contactsPanelLink}
+                    href={link.href}
+                    download={link.download}
+                    target={link.target}
+                    rel={link.rel}
+                    onClick={closeContacts}
+                  >
+                    <span>{link.label}</span>
+
+                    <span
+                      className={styles.contactsPanelArrow}
+                      aria-hidden="true"
                     >
-                        Radio
-                    </button>
-                </nav>
-            </header>
-
-
-            {contactsOpen ? (
-                <div
-                    className={styles.contactsShell}
-                    role="dialog"
-                    aria-modal="true"
-                    aria-label="Contacts"
-                    onClick={() => setContactsOpen(false)}
-                >
-                    <aside className={styles.contactsPanel} onClick={(e) => e.stopPropagation()}>
-
-                        <div className={styles.contactsPanelHeader}>
-                            <span className={styles.contactsPanelNumber}>16</span>
-                            <div className={styles.contactsPanelTitleBlock}>
-                                <span className={styles.contactsPanelName}>Le Pera</span>
-                                <span className={styles.contactsPanelSub}>Team Radio</span>
-                            </div>
-                            <button
-                                type="button"
-                                className={styles.contactsClose}
-                                onClick={() => setContactsOpen(false)}
-                                aria-label="Chiudi"
-                            >
-                                ×
-                            </button>
-                        </div>
-
-                        <div className={styles.contactsPanelBody}>
-                            <p className={styles.contactsPanelQuote}>
-                                Canali attivi per CV, comunicazioni dirette e repository.
-                            </p>
-                            <div className={styles.contactsPanelLinks}>
-                                {contactLinks.map((link) => (
-                                    <a
-                                        key={link.label}
-                                        className={styles.contactsPanelLink}
-                                        href={link.href}
-                                        download={link.download}
-                                        target={link.target}
-                                        rel={link.rel}
-                                        onClick={() => setContactsOpen(false)}
-                                    >
-                                        <span>
-                                            {link.label}
-                                        </span>
-
-                                        <span className={styles.contactsPanelArrow} aria-hidden="true">
-                                            <FontAwesomeIcon icon={link.icon} />
-                                        </span>
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-
-                    </aside>
-                </div>
-            ) : null}
-        </>
-    )
+                      <FontAwesomeIcon icon={link.icon} />
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </div>
+      ) : null}
+    </>
+  );
 }
