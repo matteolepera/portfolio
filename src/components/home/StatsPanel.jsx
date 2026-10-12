@@ -18,8 +18,9 @@ export default function StatsPanel({ stats, note }) {
               className="relative h-2 flex-1 overflow-hidden rounded-full bg-line"
             >
               <span
-                className={`absolute inset-y-0 left-0 rounded-full transition-colors duration-500 ${stat.value < 40 ? "bg-hi" : "bg-accent"
-                  }`}
+                className={`absolute inset-y-0 left-0 rounded-full transition-colors duration-500 ${
+                  stat.value < 40 ? "bg-hi" : "bg-accent"
+                }`}
                 style={{ width: `${stat.value}%` }}
               />
             </span>

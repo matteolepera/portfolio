@@ -27,7 +27,10 @@ export default function Home() {
       <About />
 
       {sectors
-        .filter((sector) => !["progetti", "come-lavoro", "chi-sono"].includes(sector.id))
+        .filter(
+          (sector) =>
+            !["progetti", "come-lavoro", "chi-sono"].includes(sector.id),
+        )
         .map((sector) => (
           <section
             key={sector.id}
