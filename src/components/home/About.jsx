@@ -6,7 +6,10 @@ import Avatar from "../brand/Avatar";
 
 export default function About() {
   return (
-    <section id="chi-sono" className="scroll-mt-[88px] border-t border-line">
+    <section
+      id="chi-sono"
+      className="scroll-mt-6 lg:scroll-mt-[88px] border-t border-line"
+    >
       <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20 lg:py-24">
         <p className="font-mono text-[13px] tracking-[0.12em] text-accent-text uppercase">
           03 — Chi sono
