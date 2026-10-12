@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Section from "../components/ui/Section";
+import { sectors } from "../content/sectors";
 
 export default function Home() {
   return (
@@ -12,43 +12,26 @@ export default function Home() {
         />
       </Helmet>
 
-      <div className="mx-auto flex max-w-4xl flex-col gap-4 px-4 pt-24 pb-6">
+      <div aria-hidden="true" className="h-24" />
+
+      <section className="mx-auto max-w-[1200px] px-8 py-24">
+        <p className="font-mono text-sm text-muted">Hero: arriva nella 3.5</p>
+      </section>
+
+      {sectors.map((sector) => (
         <section
-          id="profilo"
-          className="scroll-mt-24 overflow-hidden rounded-xl border border-white/10 bg-card"
+          key={sector.id}
+          id={sector.id}
+          className="min-h-screen scroll-mt-[88px] border-t border-line"
         >
-          <div className="h-40 bg-linear-to-r from-orange via-pink to-purple sm:h-52" />
-          <div className="p-6 text-muted">Profilo: lo costruiamo nella 2.3</div>
+          <div className="mx-auto max-w-[1200px] px-8 py-24">
+            <p className="font-mono text-sm tracking-[0.12em] text-accent-text uppercase">
+              {sector.code} — {sector.label}
+            </p>
+            <h2 className="display-title mt-3.5 text-5xl">In arrivo</h2>
+          </div>
         </section>
-
-        <Section
-          id="informazioni"
-          kicker="Informazioni"
-          title="Scheda personaggio"
-        >
-          <p className="text-muted">In arrivo</p>
-        </Section>
-
-        <Section id="missioni" kicker="In evidenza" title="Missioni">
-          <p className="text-muted">In arrivo</p>
-        </Section>
-
-        <Section
-          id="esperienza"
-          kicker="Esperienza"
-          title="Storia del personaggio"
-        >
-          <p className="text-muted">In arrivo</p>
-        </Section>
-
-        <Section id="competenze" kicker="Competenze" title="Ruota delle armi">
-          <p className="text-muted">In arrivo</p>
-        </Section>
-
-        <Section id="contatti" kicker="Contatti" title="Telefono">
-          <p className="text-muted">In arrivo</p>
-        </Section>
-      </div>
+      ))}
     </>
   );
 }
