@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import DesktopHeader from "../components/header/DesktopHeader";
 import Footer from "../components/Footer";
+import BottomBar from "../components/nav/BottomBar";
 
 export default function DefaultLayouts() {
   const location = useLocation();
@@ -17,6 +18,7 @@ export default function DefaultLayouts() {
         <Outlet />
       </main>
       <Footer />
+      <BottomBar />
     </>
   );
 }

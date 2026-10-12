@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section
       id="contatti"
-      className="scroll-mt-[88px] bg-accent text-on-accent transition-colors duration-500"
+      className="scroll-mt-6 lg:scroll-mt-[88px] bg-accent text-on-accent transition-colors duration-500"
     >
       <div className="mx-auto max-w-[1200px] px-5 py-[72px] md:px-8 md:py-[88px] lg:py-[104px]">
         <p className="font-mono text-[13px] tracking-[0.12em] uppercase">
