@@ -3,6 +3,7 @@ import { sectors } from "../content/sectors";
 import Projects from "../components/home/Projects";
 import Hero from "../components/home/Hero";
 import Workflow from "../components/home/Workflow";
+import About from "../components/home/About";
 
 export default function Home() {
   return (
@@ -23,8 +24,10 @@ export default function Home() {
 
       <Workflow />
 
+      <About />
+
       {sectors
-        .filter((sector) => !["progetti", "come-lavoro"].includes(sector.id))
+        .filter((sector) => !["progetti", "come-lavoro", "chi-sono"].includes(sector.id))
         .map((sector) => (
           <section
             key={sector.id}
