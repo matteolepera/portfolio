@@ -1,6 +1,7 @@
 export const profile = {
   name: "Matteo Le Pera",
   role: "Full Stack Developer",
+  photo: "/images/profile.webp",
   email: "matteo.lepera02@gmail.com",
   cvUrl: "/cv/Matteo.LePeraV6.pdf",
   githubUser: "matteolepera",
