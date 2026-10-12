@@ -1,23 +1,16 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import DefaultLayouts from "./layouts/DefaultLayouts";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Projects from "./pages/Projects";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<DefaultLayouts />}>
-            <Route element={<Home />} path="/" />
-            <Route element={<About />} path="/bio" />
-            <Route element={<Projects />} path="/box" />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<DefaultLayouts />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
