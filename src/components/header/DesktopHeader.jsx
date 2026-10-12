@@ -4,6 +4,7 @@ import { profile } from "../../content/profile";
 import { sectors } from "../../content/sectors";
 import useScrollSpy from "../../hooks/useScrollSpy";
 import ThemeSwitch from "./ThemeSwitch";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 const SECTOR_IDS = sectors.map((sector) => sector.id);
 
@@ -60,6 +61,7 @@ export default function DesktopHeader() {
               <a
                 key={sector.id}
                 href={`#${sector.id}`}
+                onClick={(event) => scrollToSection(event, sector.id)}
                 aria-current={state === "active" ? "location" : undefined}
                 className="flex min-h-11 min-w-0 flex-1 flex-col justify-center gap-[7px] px-0.5 py-1"
               >

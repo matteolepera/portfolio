@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import useScrollProgress from "../../hooks/useScrollProgress";
 import Avatar from "../brand/Avatar";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 const RADIUS = 23;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
@@ -12,6 +13,7 @@ export default function LapAvatar({ shown }) {
   return (
     <a
       href="#top"
+      onClick={(event) => scrollToSection(event, "progetti")}
       aria-label="Matteo Le Pera: torna all'inizio"
       className={`relative flex size-[50px] shrink-0 items-center justify-center transition-transform ${
         shown

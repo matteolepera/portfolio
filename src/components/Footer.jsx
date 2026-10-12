@@ -1,6 +1,7 @@
 import { footerLines, profile } from "../content/profile";
 import { useTheme } from "../theme/themeContext";
 import Avatar from "./brand/Avatar";
+import { scrollToSection } from "../utils/scrollToSection";
 
 const YEAR = new Date().getFullYear();
 
@@ -27,6 +28,7 @@ export default function Footer() {
         <span>© {YEAR}</span>
         <a
           href="#top"
+          onClick={(event) => scrollToSection(event, "progetti")}
           className="flex min-h-11 items-center gap-2 rounded-full border border-line px-4 font-semibold tracking-[0.06em] text-ink uppercase"
         >
           Box, box <span aria-hidden="true">↑</span>
