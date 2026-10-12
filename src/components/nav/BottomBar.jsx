@@ -2,6 +2,7 @@ import { sectors } from "../../content/sectors";
 import useScrollSpy from "../../hooks/useScrollSpy";
 import LapAvatar from "./LapAvatar";
 import LiveryCoin from "./LiveryCoin";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 const SECTOR_IDS = sectors.map((sector) => sector.id);
 
@@ -68,6 +69,7 @@ export default function BottomBar() {
             <a
               key={sector.id}
               href={`#${sector.id}`}
+              onClick={(event) => scrollToSection(event, sector.id)}
               aria-label={`${sector.code} ${sector.label}`}
               aria-current={index === activeIndex ? "location" : undefined}
               className={`relative flex min-h-[52px] min-w-0 flex-1 items-center justify-center transition-colors duration-300 ${getIconColor(
