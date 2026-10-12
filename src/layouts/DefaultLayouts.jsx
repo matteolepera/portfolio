@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import DesktopHeader from "../components/header/DesktopHeader";
+import Footer from "../components/Footer";
 
 export default function DefaultLayouts() {
   const location = useLocation();
@@ -15,6 +16,7 @@ export default function DefaultLayouts() {
       <main id="top">
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }
