@@ -12,7 +12,7 @@ export default function DefaultLayouts() {
   return (
     <>
       <DesktopHeader />
-      <main>
+      <main id="top">
         <Outlet />
       </main>
     </>

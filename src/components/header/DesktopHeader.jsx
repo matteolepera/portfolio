@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import BrandFlight from "../brand/BrandFlight";
 import { profile } from "../../content/profile";
 import { sectors } from "../../content/sectors";
 import useScrollSpy from "../../hooks/useScrollSpy";
@@ -24,6 +26,7 @@ function getLapText(activeIndex) {
 }
 
 export default function DesktopHeader() {
+  const slotRef = useRef(null);
   const { activeId, docked } = useScrollSpy(SECTOR_IDS);
   const activeIndex = SECTOR_IDS.indexOf(activeId);
 
@@ -40,9 +43,9 @@ export default function DesktopHeader() {
         />
 
         <span
-          data-brand-slot
+          ref={slotRef}
           aria-hidden="true"
-          className="relative block h-[46px] w-48 shrink-0"
+          className="relative mr-1.5 block h-[46px] w-[190px] shrink-0"
         />
 
         <nav
@@ -120,6 +123,7 @@ export default function DesktopHeader() {
           </a>
         </div>
       </header>
+      <BrandFlight docked={docked} slotRef={slotRef} />
     </div>
   );
 }
