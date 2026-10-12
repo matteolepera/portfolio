@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { sectors } from "../content/sectors";
-import Identity from "../components/brand/Identity";
+import Hero from "../components/home/Hero";
 
 export default function Home() {
   return (
@@ -13,19 +13,9 @@ export default function Home() {
         />
       </Helmet>
 
-      <div aria-hidden="true" className="h-24" />
+      <div aria-hidden="true" className="hidden h-24 lg:block" />
 
-      <section className="mx-auto max-w-[1200px] px-8 pt-16 pb-24">
-        <div
-          data-hero-identity
-          className="mb-8 inline-flex items-center gap-4 whitespace-nowrap lg:invisible"
-        >
-          <Identity />
-        </div>
-        <p className="font-mono text-sm text-muted">
-          Resto dell'hero: arriva nella 3.5
-        </p>
-      </section>
+      <Hero />
 
       {sectors.map((sector) => (
         <section
