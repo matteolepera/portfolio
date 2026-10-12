@@ -1,37 +1,74 @@
 @import "tailwindcss";
 
+/* Livrea base: Rosso corsa */
+:root {
+  color-scheme: dark;
+  --bg: #0e0e0e;
+  --surface: #171717;
+  --glass: rgba(23, 23, 23, 0.72);
+  --ink: #f5f2ee;
+  --muted: #a8a29e;
+  --line: #2e2c2a;
+  --accent: #d40000;
+  --on-accent: #ffffff;
+  --accent-text: #ff4a3d;
+  --hi: #ffd100;
+  --sector: #b65cff;
+}
+
+/* Livrea VI: Vice City */
+[data-theme="vi"] {
+  --bg: #1e0033;
+  --surface: #2a0b45;
+  --glass: rgba(42, 11, 69, 0.72);
+  --ink: #f3e9ff;
+  --muted: #b9a3d9;
+  --line: #43205f;
+  --accent: #ff1fa9;
+  --on-accent: #1e0033;
+  --accent-text: #ff1fa9;
+  --hi: #ffa24e;
+  --sector: #ff1fa9;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-glass: var(--glass);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-accent-text: var(--accent-text);
+  --color-hi: var(--hi);
+  --color-sector: var(--sector);
+}
+
 @theme {
-  /* Sfondi */
-  --color-night: #1e0033;
-  --color-card: #2a0b45;
+  --font-sans: "Archivo", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
 
-  /* Testi */
-  --color-ink: #f3e9ff;
-  --color-muted: #b9a3d9;
+/* Titoli larghi e pesanti, uguali in entrambe le livree */
+@utility display-title {
+  font-weight: 800;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
 
-  /* Accenti GTA 6 */
-  --color-pink: #ff1fa9;
-  --color-orange: #ffa24e;
-  --color-gold: #ffc857;
-  --color-purple: #7a4bb0;
-
-  /* LinkedIn */
-  --color-linkedin: #0a66c2;
-
-  /* Font: testo stile LinkedIn, titoli stile GTA */
-  --font-sans:
-    system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-display: "Anton", "Impact", sans-serif;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100dvh;
   overflow-x: hidden;
-  background: var(--color-night);
-  color: var(--color-ink);
+  background: var(--bg);
+  color: var(--ink);
   font-family: var(--font-sans);
-}
-
-html {
-  scroll-behavior: smooth;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
 }
