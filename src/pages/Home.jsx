@@ -1,9 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import { sectors } from "../content/sectors";
 import Projects from "../components/home/Projects";
 import Hero from "../components/home/Hero";
 import Workflow from "../components/home/Workflow";
 import About from "../components/home/About";
+import Contact from "../components/home/Contact";
 
 export default function Home() {
   return (
@@ -26,22 +26,7 @@ export default function Home() {
 
       <About />
 
-      {sectors
-        .filter((sector) => !["progetti", "come-lavoro", "chi-sono"].includes(sector.id))
-        .map((sector) => (
-          <section
-            key={sector.id}
-            id={sector.id}
-            className="min-h-screen scroll-mt-[88px] border-t border-line"
-          >
-            <div className="mx-auto max-w-[1200px] px-8 py-24">
-              <p className="font-mono text-sm tracking-[0.12em] text-accent-text uppercase">
-                {sector.code} — {sector.label}
-              </p>
-              <h2 className="display-title mt-3.5 text-5xl">In arrivo</h2>
-            </div>
-          </section>
-        ))}
+      <Contact />
     </>
   );
 }
