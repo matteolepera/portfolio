@@ -72,3 +72,9 @@ body {
     background-color 0.5s ease,
     color 0.5s ease;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
