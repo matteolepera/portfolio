@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { sectors } from "../content/sectors";
 import Projects from "../components/home/Projects";
 import Hero from "../components/home/Hero";
+import Workflow from "../components/home/Workflow";
 
 export default function Home() {
   return (
@@ -20,8 +21,10 @@ export default function Home() {
 
       <Projects />
 
+      <Workflow />
+
       {sectors
-        .filter((sector) => sector.id !== "progetti")
+        .filter((sector) => !["progetti", "come-lavoro"].includes(sector.id))
         .map((sector) => (
           <section
             key={sector.id}
