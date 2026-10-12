@@ -1,6 +1,7 @@
 import { hero, profile } from "../../content/profile";
 import Identity from "../brand/Identity";
 import Telemetry from "./Telemetry";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 export default function Hero() {
   return (
@@ -27,6 +28,7 @@ export default function Hero() {
         <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
           <a
             href="#progetti"
+            onClick={(event) => scrollToSection(event, "progetti")}
             className="inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-accent px-[26px] text-base font-bold text-on-accent transition-colors duration-500"
           >
             Guarda i progetti

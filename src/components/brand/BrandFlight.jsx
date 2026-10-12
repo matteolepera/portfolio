@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import Identity from "./Identity";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 const END_SCALE = 46 / 72;
 const DURATION = 650;
@@ -65,6 +66,7 @@ export default function BrandFlight({ docked, slotRef }) {
     <a
       ref={flyRef}
       href="#top"
+      onClick={(event) => scrollToSection(event, "progetti")}
       aria-label="Matteo Le Pera, torna all'inizio"
       style={{ visibility: "hidden" }}
       className="pointer-events-auto fixed top-0 left-0 z-[25] flex origin-top-left items-center gap-4 whitespace-nowrap text-ink will-change-transform"
