@@ -1,6 +1,6 @@
 export const about = {
   intro:
-    "Non mi definisco frontend o backend: mi piace far funzionare le cose dall'inizio alla fine. Mi sono formato con Boolean, poi ho lavorato nell'automazione dati. Fuori dal codice ci sono la Formula 1, il mondo Ferrari e il conto alla rovescia per GTA VI: per quello c'è l'interruttore in alto.",
+    "Non mi definisco frontend o backend: mi piace far funzionare le cose dall'inizio alla fine. Mi sono formato con Boolean, poi ho lavorato nell'automazione dati. Fuori dal codice ci sono la Formula 1, il mondo Ferrari e il conto alla rovescia per GTA VI: per quello c'è il cambio livrea.",
   statsNote:
     "Le scadenze le stimo come Rockstar stima le uscite. Ci sto lavorando. Prossima abilità da sbloccare: TypeScript.",
 };
@@ -17,7 +17,7 @@ export const path = [
   {
     id: "scraping",
     title: "Web scraping e automazione dati",
-    meta: "[Azienda] · [Periodo]",
+    meta: "lug 2026 - ago 2026",
     current: true,
   },
   {
@@ -30,7 +30,7 @@ export const path = [
   {
     id: "boolean",
     title: "Full Stack Web Development",
-    meta: "Boolean · [Periodo]",
+    meta: "Boolean · set 2025 - mag 2026",
     current: false,
   },
 ];
