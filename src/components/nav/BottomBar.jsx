@@ -72,7 +72,13 @@ export default function BottomBar() {
                   activeIndex,
                 )}`}
               >
-                <Icon size={24} stroke={1.9} aria-hidden="true" />
+                <span
+                  key={theme}
+                  className="flex animate-icon-flip motion-reduce:animate-none"
+                  style={{ animationDelay: `${150 + index * 70}ms` }}
+                >
+                  <Icon size={24} stroke={1.9} aria-hidden="true" />
+                </span>
               </a>
             );
           })}
