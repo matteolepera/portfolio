@@ -1,3 +1,5 @@
+import StackBadges from "../ui/StackBadges";
+
 export default function FeaturedProject({ project }) {
   const lastLap = project.laps.length - 1;
 
@@ -23,9 +25,12 @@ export default function FeaturedProject({ project }) {
           {project.name}
         </h3>
         <p className="mt-3 text-lg">{project.description}</p>
-        <p className="mt-3.5 font-mono text-[13px] text-muted">
-          {[project.role, ...project.stack].join(" · ")}
-        </p>
+
+        <StackBadges
+          role={project.role}
+          stack={project.stack}
+          className="mt-4"
+        />
 
         <p className="mt-6 mb-2.5 font-mono text-xs tracking-[0.12em] text-muted uppercase">
           Giro dopo giro
