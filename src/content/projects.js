@@ -49,7 +49,7 @@ export const projects = [
     description:
       "Rubrica digitale per accompagnatori di viaggio: filtro per mese, form dei viaggi e menu chiamate di emergenza.",
     role: "In team",
-    stack: ["Frontend", "React"],
+    stack: ["React", "BootStrap"],
     demoUrl: null,
     codeUrl: null,
   },

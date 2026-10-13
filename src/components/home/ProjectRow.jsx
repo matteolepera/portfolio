@@ -1,3 +1,5 @@
+import StackBadges from "../ui/StackBadges";
+
 export default function ProjectRow({ project }) {
   const hasLinks = project.demoUrl || project.codeUrl;
 
@@ -8,9 +10,11 @@ export default function ProjectRow({ project }) {
         <p className="mt-1.5 text-muted">{project.description}</p>
       </div>
 
-      <p className="min-w-0 flex-[1_1_200px] font-mono text-[13px] text-muted">
-        {[project.role, ...project.stack].join(" · ")}
-      </p>
+      <StackBadges
+        role={project.role}
+        stack={project.stack}
+        className="min-w-0 flex-[1_1_200px]"
+      />
 
       {hasLinks && (
         <div className="flex shrink-0 gap-5 text-[15px] font-bold">
