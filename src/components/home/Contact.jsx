@@ -10,7 +10,7 @@ export default function Contact() {
         <p className="font-mono text-[13px] tracking-[0.12em] uppercase">
           04 — Contatti
         </p>
-        <h2 className="display-title mt-4 text-[clamp(48px,7.6vw,112px)] leading-[0.95]">
+        <h2 className="display-title mt-4 text-[clamp(36px,10.5vw,112px)] leading-[0.95]">
           Parliamone.
         </h2>
 
