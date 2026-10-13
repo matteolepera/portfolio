@@ -1,21 +1,12 @@
 import { sectors } from "../../content/sectors";
 import useScrollSpy from "../../hooks/useScrollSpy";
+import { useTheme } from "../../theme/themeContext";
+import { scrollToSection } from "../../utils/scrollToSection";
 import LapAvatar from "./LapAvatar";
 import LiveryCoin from "./LiveryCoin";
-import { scrollToSection } from "../../utils/scrollToSection";
+import { sectorIcons } from "./sectorIcons";
 
 const SECTOR_IDS = sectors.map((sector) => sector.id);
-
-// ICONE PROVVISORIE
-const SECTOR_ICONS = {
-  progetti: "M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14",
-  "come-lavoro":
-    "M14.7 6.3a4 4 0 0 0-5.4 5.4L3.6 17.4a1.9 1.9 0 0 0 2.7 2.7l5.7-5.7a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.4-.4-2.4z",
-  "chi-sono":
-    "M3.5 15.5a8.5 8.5 0 0 1 17-1.5v3.5H10.5L8.5 20h-4a1 1 0 0 1-1-1zM12.5 11h8",
-  contatti:
-    "M12 12h.01M8.8 15.2a4.5 4.5 0 0 1 0-6.4M15.2 8.8a4.5 4.5 0 0 1 0 6.4M5.9 18.1a8.6 8.6 0 0 1 0-12.2M18.1 5.9a8.6 8.6 0 0 1 0 12.2",
-};
 
 function getIconColor(index, activeIndex) {
   if (index === activeIndex) return "text-sector";
@@ -30,6 +21,7 @@ export default function BottomBar() {
     undockAt: 40,
   });
   const activeIndex = SECTOR_IDS.indexOf(activeId);
+  const { theme } = useTheme();
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-20 flex justify-center px-3 pb-[calc(14px+env(safe-area-inset-bottom))] lg:hidden">
@@ -65,33 +57,31 @@ export default function BottomBar() {
             />
           </span>
 
-          {sectors.map((sector, index) => (
-            <a
-              key={sector.id}
-              href={`#${sector.id}`}
-              onClick={(event) => scrollToSection(event, sector.id)}
-              aria-label={`${sector.code} ${sector.label}`}
-              aria-current={index === activeIndex ? "location" : undefined}
-              className={`relative flex min-h-[52px] min-w-0 flex-1 items-center justify-center transition-colors duration-300 ${getIconColor(
-                index,
-                activeIndex,
-              )}`}
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.9"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
+          {sectors.map((sector, index) => {
+            const Icon = sectorIcons[sector.id][theme];
+
+            return (
+              <a
+                key={sector.id}
+                href={`#${sector.id}`}
+                onClick={(event) => scrollToSection(event, sector.id)}
+                aria-label={`${sector.code} ${sector.label}`}
+                aria-current={index === activeIndex ? "location" : undefined}
+                className={`relative flex min-h-[52px] min-w-0 flex-1 items-center justify-center transition-colors duration-300 ${getIconColor(
+                  index,
+                  activeIndex,
+                )}`}
               >
-                <path d={SECTOR_ICONS[sector.id]} />
-              </svg>
-            </a>
-          ))}
+                <span
+                  key={theme}
+                  className="flex animate-icon-flip motion-reduce:animate-none"
+                  style={{ animationDelay: `${150 + index * 70}ms` }}
+                >
+                  <Icon size={24} stroke={1.9} aria-hidden="true" />
+                </span>
+              </a>
+            );
+          })}
         </div>
 
         <span aria-hidden="true" className="h-[30px] w-px shrink-0 bg-line" />
