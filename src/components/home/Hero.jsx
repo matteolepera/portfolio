@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="min-w-0 flex-[999_1_600px]">
         <div
           data-hero-identity
-          className="mb-8 inline-flex items-center gap-4 whitespace-nowrap lg:invisible"
+          className="mb-8 inline-flex items-center gap-3 md:gap-4 whitespace-nowrap lg:invisible"
         >
           <Identity />
         </div>
