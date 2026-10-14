@@ -88,16 +88,21 @@ export default function F1Telemetry() {
 
       <div className="border-t border-line px-3.5 pt-2.5 pb-3">
         <p className={`${LABEL} mb-2 text-muted`}>Mescole</p>
-        <ul className="flex flex-wrap justify-between gap-2">
+        <ul className="grid grid-cols-4 gap-1">
           {telemetry.compounds.map((item) => (
-            <li key={item.tech} className="flex items-center gap-1.5">
+            <li
+              key={item.tech}
+              className="flex min-w-0 flex-col items-center gap-1.5"
+            >
               <span
                 aria-hidden="true"
-                className={`flex size-[26px] items-center justify-center rounded-full border-4 text-[10px] font-extrabold ${COMPOUND_RING[item.compound]}`}
+                className={`flex size-[30px] items-center justify-center rounded-full border-4 text-[11px] font-extrabold ${COMPOUND_RING[item.compound]}`}
               >
                 {item.compound}
               </span>
-              <span className={`${LABEL} text-ink`}>{item.tech}</span>
+              <span className={`${LABEL} max-w-full truncate text-ink`}>
+                {item.tech}
+              </span>
             </li>
           ))}
         </ul>
