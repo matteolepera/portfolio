@@ -18,12 +18,6 @@ export const hero = {
 };
 
 export const telemetry = {
-  status: "Disponibile da subito",
-  location: "Cosenza · ibrido · remoto",
-  inGarage: "F****** · archivio Ferrari",
-  stack: "Laravel · React · Node · Python",
-  viReleaseDate: "19.11.2026",
-  // nuove telemetrie F1 e GTA
   city: "Cosenza",
   workMode: "Ibrido · Remoto",
   garage: { name: "F******", description: "Archivio Ferrari" },
