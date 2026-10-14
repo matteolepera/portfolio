@@ -3,7 +3,7 @@ import BrandFlight from "../brand/BrandFlight";
 import { profile } from "../../content/profile";
 import { sectors } from "../../content/sectors";
 import useScrollSpy from "../../hooks/useScrollSpy";
-import ThemeSwitch from "./ThemeSwitch";
+import LiveryCoin from "../nav/LiveryCoin";
 import { scrollToSection } from "../../utils/scrollToSection";
 
 const SECTOR_IDS = sectors.map((sector) => sector.id);
@@ -99,7 +99,7 @@ export default function DesktopHeader() {
             </span>
           </p>
 
-          <ThemeSwitch />
+          <LiveryCoin size="sm" />
 
           <a
             href={profile.cvUrl}
