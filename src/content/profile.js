@@ -23,6 +23,18 @@ export const telemetry = {
   inGarage: "F****** · archivio Ferrari",
   stack: "Laravel · React · Node · Python",
   viReleaseDate: "19.11.2026",
+  // nuove telemetrie F1 e GTA
+  city: "Cosenza",
+  workMode: "Ibrido · Remoto",
+  garage: { name: "F******", description: "Archivio Ferrari" },
+  compounds: [
+    { tech: "Laravel", compound: "S" },
+    { tech: "PHP", compound: "M" },
+    { tech: "React", compound: "H" },
+    { tech: "JavaScript", compound: "I" },
+  ],
+  arsenal: ["Laravel", "PHP", "React", "JS"],
+  viRelease: "2026-11-19T00:00:00",
 };
 
 export const footerLines = {

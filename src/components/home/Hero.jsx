@@ -6,7 +6,7 @@ import { scrollToSection } from "../../utils/scrollToSection";
 export default function Hero() {
   return (
     <section className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-8 px-5 pt-10 pb-16 md:gap-10 md:px-8 md:pt-14 md:pb-20 lg:gap-14 lg:pt-16 lg:pb-[104px]">
-      <div className="min-w-0 flex-[999_1_600px]">
+      <div className="min-w-0 flex-[999_1_480px]">
         <div
           data-hero-identity
           className="mb-8 inline-flex items-center gap-3 md:gap-4 whitespace-nowrap lg:invisible"
