@@ -3,7 +3,7 @@ export const profile = {
   role: "Full Stack Developer",
   photo: "/images/profile.webp",
   email: "matteo.lepera02@gmail.com",
-  cvUrl: "/cv/Matteo.LePeraV6.pdf",
+  cvUrl: "/cv/Matteo-Le-Pera-CV.pdf",
   githubUser: "matteolepera",
   links: {
     github: "https://github.com/matteolepera",
