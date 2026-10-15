@@ -1,19 +1,20 @@
 import { useRef } from "react";
 import useScrollProgress from "../../hooks/useScrollProgress";
 import Avatar from "../brand/Avatar";
-import { scrollToSection } from "../../utils/scrollToSection";
+import useSectionNavigation from "../../hooks/useSectionNavigation";
 
 const RADIUS = 23;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 export default function LapAvatar({ shown }) {
+  const goToSection = useSectionNavigation();
   const ringRef = useRef(null);
   useScrollProgress(ringRef, CIRCUMFERENCE);
 
   return (
     <a
-      href="#top"
-      onClick={(event) => scrollToSection(event, "progetti")}
+      href="/#top"
+      onClick={(event) => goToSection(event, "top")}
       aria-label="Matteo Le Pera: torna all'inizio"
       className={`relative flex size-[50px] shrink-0 items-center justify-center transition-transform ${
         shown

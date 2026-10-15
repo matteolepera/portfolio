@@ -1,8 +1,7 @@
 import StackBadges from "../ui/StackBadges";
+import LapList from "../project/LapList";
 
 export default function FeaturedProject({ project }) {
-  const lastLap = project.laps.length - 1;
-
   return (
     <article className="flex flex-wrap gap-5 rounded-[20px] border border-line bg-surface p-[18px] transition-colors duration-500 md:gap-7 md:p-6 lg:gap-10 lg:p-8">
       <div className="flex aspect-[16/10] min-w-0 flex-[1_1_480px] items-center justify-center overflow-hidden rounded-xl border border-line bg-bg font-mono text-[13px] text-muted">
@@ -32,23 +31,7 @@ export default function FeaturedProject({ project }) {
           className="mt-4"
         />
 
-        <p className="mt-6 mb-2.5 font-mono text-xs tracking-[0.12em] text-muted uppercase">
-          Giro dopo giro
-        </p>
-        <ol className="flex flex-col gap-2.5">
-          {project.laps.map((lap, index) => (
-            <li key={lap.id} className="flex gap-3.5">
-              <span
-                className={`w-[60px] shrink-0 pt-0.5 font-mono text-[13px] ${
-                  index === lastLap ? "text-accent-text" : "text-muted"
-                }`}
-              >
-                Giro {lap.id}
-              </span>
-              <span>{lap.text}</span>
-            </li>
-          ))}
-        </ol>
+        <LapList laps={project.laps} />
 
         <a
           href={project.linkUrl}

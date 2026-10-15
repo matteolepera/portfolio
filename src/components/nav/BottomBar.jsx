@@ -1,7 +1,7 @@
 import { sectors } from "../../content/sectors";
 import useScrollSpy from "../../hooks/useScrollSpy";
 import { useTheme } from "../../theme/themeContext";
-import { scrollToSection } from "../../utils/scrollToSection";
+import useSectionNavigation from "../../hooks/useSectionNavigation";
 import LapAvatar from "./LapAvatar";
 import LiveryCoin from "./LiveryCoin";
 import { sectorIcons } from "./sectorIcons";
@@ -22,6 +22,7 @@ export default function BottomBar() {
   });
   const activeIndex = SECTOR_IDS.indexOf(activeId);
   const { theme } = useTheme();
+  const goToSection = useSectionNavigation();
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-20 flex justify-center px-3 pb-[calc(14px+env(safe-area-inset-bottom))] lg:hidden">
@@ -63,8 +64,8 @@ export default function BottomBar() {
             return (
               <a
                 key={sector.id}
-                href={`#${sector.id}`}
-                onClick={(event) => scrollToSection(event, sector.id)}
+                href={`/#${sector.id}`}
+                onClick={(event) => goToSection(event, sector.id)}
                 aria-label={`${sector.code} ${sector.label}`}
                 aria-current={index === activeIndex ? "location" : undefined}
                 className={`relative flex min-h-[52px] min-w-0 flex-1 items-center justify-center transition-colors duration-300 ${getIconColor(

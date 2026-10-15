@@ -20,6 +20,9 @@ export const featuredProject = {
   ],
   linkLabel: "Segui la rivelazione su LinkedIn",
   linkUrl: "https://www.linkedin.com/in/matteo-le-pera/",
+  position: "P1",
+  repoUrl: null,
+  gallery: [],
 };
 
 export const projects = [
@@ -30,8 +33,22 @@ export const projects = [
       "App a tema Formula 1: team, piloti e power unit della stagione, con backoffice CRUD protetto e API REST.",
     role: "Full stack",
     stack: ["Laravel", "React"],
-    demoUrl: null,
-    codeUrl: null,
+    position: "P2",
+    repoUrl: null,
+    gallery: [
+      {
+        src: "/images/focusone/home-desktop.png",
+        alt: "Home pubblica di FocusOne",
+      },
+      {
+        src: "/images/focusone/login-backoffice.png",
+        alt: "Login del backoffice di FocusOne",
+      },
+      {
+        src: "/images/focusone/dashboard-backoffice.png",
+        alt: "Dashboard del backoffice di FocusOne",
+      },
+    ],
   },
   {
     id: "aeterna-skin",
@@ -40,8 +57,27 @@ export const projects = [
       "E-commerce di skincare in team: mockup su Figma, carrello e checkout in React, invio email con Nodemailer.",
     role: "In team",
     stack: ["React", "Node.js"],
-    demoUrl: null,
-    codeUrl: null,
+    position: "P3",
+    repoUrl: null,
+    gallery: [
+      {
+        src: "/images/aeternaskin/home-desktop.png",
+        alt: "Home di Aeterna Skin",
+      },
+      { src: "/images/aeternaskin/popup.png", alt: "Popup di Aeterna Skin" },
+      {
+        src: "/images/aeternaskin/cartpreview.png",
+        alt: "Anteprima del carrello di Aeterna Skin",
+      },
+      {
+        src: "/images/aeternaskin/checkout.png",
+        alt: "Checkout di Aeterna Skin",
+      },
+      {
+        src: "/images/aeternaskin/ordine-confermato.png",
+        alt: "Conferma dell'ordine su Aeterna Skin",
+      },
+    ],
   },
   {
     id: "trip-and-chill",
@@ -50,7 +86,27 @@ export const projects = [
       "Rubrica digitale per accompagnatori di viaggio: filtro per mese, form dei viaggi e menu chiamate di emergenza.",
     role: "In team",
     stack: ["React", "BootStrap"],
-    demoUrl: null,
-    codeUrl: null,
+    position: "P4",
+    repoUrl: null,
+    gallery: [
+      {
+        src: "/images/tripandchill/desktop_screen.png",
+        alt: "Trip&Chill su desktop",
+      },
+      {
+        src: "/images/tripandchill/tablet_screen.png",
+        alt: "Trip&Chill su tablet",
+      },
+      {
+        src: "/images/tripandchill/mobile_screen.png",
+        alt: "Trip&Chill su telefono",
+      },
+    ],
   },
 ];
+
+export const allProjects = [featuredProject, ...projects];
+
+export function getProject(id) {
+  return allProjects.find((project) => project.id === id);
+}
