@@ -37,15 +37,15 @@ export const projects = [
     repoUrl: null,
     gallery: [
       {
-        src: "/images/focusone/home-desktop.png",
+        src: "/images/focusone/home-desktop.webp",
         alt: "Home pubblica di FocusOne",
       },
       {
-        src: "/images/focusone/login-backoffice.png",
+        src: "/images/focusone/login-backoffice.webp",
         alt: "Login del backoffice di FocusOne",
       },
       {
-        src: "/images/focusone/dashboard-backoffice.png",
+        src: "/images/focusone/dashboard-backoffice.webp",
         alt: "Dashboard del backoffice di FocusOne",
       },
     ],
@@ -61,20 +61,20 @@ export const projects = [
     repoUrl: null,
     gallery: [
       {
-        src: "/images/aeternaskin/home-desktop.png",
+        src: "/images/aeternaskin/home-desktop.webp",
         alt: "Home di Aeterna Skin",
       },
-      { src: "/images/aeternaskin/popup.png", alt: "Popup di Aeterna Skin" },
+      { src: "/images/aeternaskin/popup.webp", alt: "Popup di Aeterna Skin" },
       {
-        src: "/images/aeternaskin/cartpreview.png",
+        src: "/images/aeternaskin/cartpreview.webp",
         alt: "Anteprima del carrello di Aeterna Skin",
       },
       {
-        src: "/images/aeternaskin/checkout.png",
+        src: "/images/aeternaskin/checkout.webp",
         alt: "Checkout di Aeterna Skin",
       },
       {
-        src: "/images/aeternaskin/ordine-confermato.png",
+        src: "/images/aeternaskin/ordine-confermato.webp",
         alt: "Conferma dell'ordine su Aeterna Skin",
       },
     ],
@@ -90,15 +90,15 @@ export const projects = [
     repoUrl: null,
     gallery: [
       {
-        src: "/images/tripandchill/desktop_screen.png",
+        src: "/images/tripandchill/desktop_screen.webp",
         alt: "Trip&Chill su desktop",
       },
       {
-        src: "/images/tripandchill/tablet_screen.png",
+        src: "/images/tripandchill/tablet_screen.webp",
         alt: "Trip&Chill su tablet",
       },
       {
-        src: "/images/tripandchill/mobile_screen.png",
+        src: "/images/tripandchill/mobile_screen.webp",
         alt: "Trip&Chill su telefono",
       },
     ],
