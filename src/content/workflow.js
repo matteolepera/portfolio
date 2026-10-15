@@ -36,3 +36,19 @@ export const commitTerminal = [
   { id: 7, type: "command", text: "git push" },
   { id: 8, type: "output", text: "→ pull request → merge su main" },
 ];
+
+export const terminal = {
+  directory: "f******",
+  branch: "feature/1.8-seeder",
+  lines: [
+    { id: 1, type: "prompt", text: "composer check" },
+    { id: 2, type: "script", text: "> pint --test" },
+    { id: 3, type: "pass", text: "codice formattato" },
+    { id: 4, type: "script", text: "> phpstan analyse" },
+    { id: 5, type: "ok", text: "Nessun errore" },
+    { id: 6, type: "script", text: "> php artisan test" },
+    { id: 7, type: "tests", label: "Tests:", text: "48 passed" },
+    { id: 8, type: "prompt", text: 'git commit -m "feat: seeder Ferrari"' },
+    { id: 9, type: "cursor" },
+  ],
+};

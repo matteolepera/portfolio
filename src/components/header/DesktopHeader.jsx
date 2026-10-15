@@ -30,10 +30,11 @@ export default function DesktopHeader() {
       <header className="pointer-events-auto relative mx-auto flex max-w-[1120px] items-center gap-[22px] rounded-3xl py-2.5 pr-2.5 pl-3">
         <span
           aria-hidden="true"
-          className={`absolute inset-0 rounded-3xl border border-line bg-glass shadow-[0_12px_32px_rgba(0,0,0,0.28)] backdrop-blur-[14px] transition-[opacity,transform] ${docked
-            ? "scale-100 opacity-100 delay-[120ms] duration-[550ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
-            : "scale-[0.985] opacity-0 duration-[250ms] ease-out"
-            }`}
+          className={`absolute inset-0 rounded-3xl border border-line bg-glass shadow-[0_12px_32px_rgba(0,0,0,0.28)] backdrop-blur-[14px] transition-[opacity,transform] ${
+            docked
+              ? "scale-100 opacity-100 delay-[120ms] duration-[550ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+              : "scale-[0.985] opacity-0 duration-[250ms] ease-out"
+          }`}
         />
 
         <span
@@ -72,8 +73,9 @@ export default function DesktopHeader() {
                 </span>
                 <span
                   aria-hidden="true"
-                  className={`h-1 rounded-full transition-[background-color,opacity] duration-300 ${style.bar} ${docked ? "opacity-100" : "opacity-50"
-                    }`}
+                  className={`h-1 rounded-full transition-[background-color,opacity] duration-300 ${style.bar} ${
+                    docked ? "opacity-100" : "opacity-50"
+                  }`}
                 />
               </a>
             );
@@ -81,7 +83,6 @@ export default function DesktopHeader() {
         </nav>
 
         <div className="relative flex items-center gap-2">
-
           <LiveryCoin size="sm" />
 
           <a

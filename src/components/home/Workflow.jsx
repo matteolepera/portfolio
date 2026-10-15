@@ -1,7 +1,7 @@
-import { commitTerminal, habits } from "../../content/workflow";
 import SectionHeading from "../ui/SectionHeading";
-import CommitTerminal from "./CommitTerminal";
 import HabitList from "./HabitList";
+import { habits } from "../../content/workflow";
+import VsCodeTerminal from "./VsCodeTerminal";
 
 export default function Workflow() {
   return (
@@ -17,7 +17,7 @@ export default function Workflow() {
         />
         <div className="flex flex-wrap items-start gap-12">
           <HabitList habits={habits} />
-          <CommitTerminal lines={commitTerminal} />
+          <VsCodeTerminal />
         </div>
       </div>
     </section>
