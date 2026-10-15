@@ -1,5 +1,6 @@
 import StackBadges from "../ui/StackBadges";
 import LapList from "../project/LapList";
+import { Link } from "react-router-dom";
 
 export default function FeaturedProject({ project }) {
   return (
@@ -33,14 +34,22 @@ export default function FeaturedProject({ project }) {
 
         <LapList laps={project.laps} />
 
-        <a
-          href={project.linkUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-5 inline-block py-2.5 text-[15px] font-bold text-accent-text"
-        >
-          {project.linkLabel} ↗
-        </a>
+        <div className="mt-5 flex flex-wrap gap-x-6 gap-y-1 text-[15px] font-bold">
+          <Link
+            to={`/progetti/${project.id}`}
+            className="inline-block py-2.5 text-accent-text"
+          >
+            Apri il progetto →
+          </Link>
+          <a
+            href={project.linkUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block py-2.5 text-muted"
+          >
+            {project.linkLabel} ↗
+          </a>
+        </div>
       </div>
     </article>
   );
