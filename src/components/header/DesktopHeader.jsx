@@ -5,6 +5,7 @@ import { sectors } from "../../content/sectors";
 import useScrollSpy from "../../hooks/useScrollSpy";
 import LiveryCoin from "../nav/LiveryCoin";
 import useSectionNavigation from "../../hooks/useSectionNavigation";
+import { useLocation } from "react-router-dom";
 
 const SECTOR_IDS = sectors.map((sector) => sector.id);
 
@@ -23,6 +24,8 @@ function getSectorState(index, activeIndex) {
 export default function DesktopHeader() {
   const slotRef = useRef(null);
   const { activeId, docked } = useScrollSpy(SECTOR_IDS);
+  const { pathname } = useLocation();
+  const solid = docked || pathname !== "/";
   const activeIndex = SECTOR_IDS.indexOf(activeId);
   const goToSection = useSectionNavigation();
 
@@ -32,7 +35,7 @@ export default function DesktopHeader() {
         <span
           aria-hidden="true"
           className={`absolute inset-0 rounded-3xl border border-line bg-glass shadow-[0_12px_32px_rgba(0,0,0,0.28)] backdrop-blur-[14px] transition-[opacity,transform] ${
-            docked
+            solid
               ? "scale-100 opacity-100 delay-[120ms] duration-[550ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
               : "scale-[0.985] opacity-0 duration-[250ms] ease-out"
           }`}
@@ -75,7 +78,7 @@ export default function DesktopHeader() {
                 <span
                   aria-hidden="true"
                   className={`h-1 rounded-full transition-[background-color,opacity] duration-300 ${style.bar} ${
-                    docked ? "opacity-100" : "opacity-50"
+                    solid ? "opacity-100" : "opacity-50"
                   }`}
                 />
               </a>

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+import useSectionNavigation from "../../hooks/useSectionNavigation";
 import Identity from "./Identity";
-import { scrollToSection } from "../../utils/scrollToSection";
 
 const END_SCALE = 46 / 72;
 const DURATION = 650;
@@ -9,6 +10,8 @@ export default function BrandFlight({ docked, slotRef }) {
   const flyRef = useRef(null);
   const animUntil = useRef(0);
   const firstRun = useRef(true);
+  const { pathname } = useLocation();
+  const goToSection = useSectionNavigation();
 
   useEffect(() => {
     const fly = flyRef.current;
@@ -16,18 +19,16 @@ export default function BrandFlight({ docked, slotRef }) {
     if (!fly || !slot) return;
 
     const place = (animate) => {
+      // Fuori dalla home non c'è l'hero: foto e nome restano nell'header
       const hero = document.querySelector("[data-hero-identity]");
-      if (!hero) {
-        fly.style.visibility = "hidden";
-        return;
-      }
+      const isDocked = docked || !hero;
 
-      slot.style.width = `${hero.offsetWidth * END_SCALE}px`;
+      slot.style.width = `${(hero ?? fly).offsetWidth * END_SCALE}px`;
 
-      const target = docked
+      const target = isDocked
         ? slot.getBoundingClientRect()
         : hero.getBoundingClientRect();
-      const scale = docked ? END_SCALE : 1;
+      const scale = isDocked ? END_SCALE : 1;
       const moving = animate || performance.now() < animUntil.current;
       if (animate) animUntil.current = performance.now() + DURATION;
 
@@ -60,13 +61,13 @@ export default function BrandFlight({ docked, slotRef }) {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
     };
-  }, [docked, slotRef]);
+  }, [docked, slotRef, pathname]);
 
   return (
     <a
       ref={flyRef}
-      href="#top"
-      onClick={(event) => scrollToSection(event, "progetti")}
+      href="/#top"
+      onClick={(event) => goToSection(event, "top")}
       aria-label="Matteo Le Pera, torna all'inizio"
       style={{ visibility: "hidden" }}
       className="pointer-events-auto fixed top-0 left-0 z-[25] flex origin-top-left items-center gap-4 whitespace-nowrap text-ink will-change-transform"
