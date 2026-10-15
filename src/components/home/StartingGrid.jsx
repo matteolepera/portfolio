@@ -9,7 +9,7 @@ export default function StartingGrid({ projects }) {
         <li key={project.id}>
           <Link
             to={`/progetti/${project.id}`}
-            className="group grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-3 border-t-[3px] border-l-[3px] border-ink bg-surface px-4 py-4 transition-colors duration-300 hover:border-accent md:grid-cols-[64px_minmax(0,1fr)_auto] md:px-5"
+            className="group rounded-xl grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-3 border-t-[3px] border-l-[3px] border-ink bg-surface px-4 py-4 transition-colors duration-300 hover:border-accent md:grid-cols-[64px_minmax(0,1fr)_auto] md:px-5"
           >
             <span className="text-[34px] leading-none font-extrabold italic [font-stretch:75%] md:text-4xl">
               {project.position}

@@ -13,7 +13,7 @@ export default function MissionList({ projects }) {
           <li key={project.id}>
             <Link
               to={`/progetti/${project.id}`}
-              className="group flex items-center gap-3 border-l-4 border-hi bg-surface px-3 py-3 transition-colors duration-300 hover:border-accent md:gap-4 md:px-4"
+              className="group rounded-xl flex items-center gap-3 border-l-4 border-hi bg-surface px-3 py-3 transition-colors duration-300 hover:border-accent md:gap-4 md:px-4"
             >
               <span
                 aria-hidden="true"

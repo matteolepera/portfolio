@@ -8,7 +8,7 @@ export default function PolePosition({ project }) {
   const lastLap = project.laps.length - 1;
 
   return (
-    <article className="border-t-[3px] border-l-[3px] border-accent bg-surface transition-colors duration-500">
+    <article className="rounded-2xl border-t-[3px] border-l-[3px] border-accent bg-surface transition-colors duration-500">
       <header className="flex flex-wrap items-center gap-x-4 gap-y-2 px-4 pt-4 md:px-6 md:pt-5">
         <span className="text-[44px] leading-none font-extrabold italic [font-stretch:75%] md:text-5xl">
           {project.position}
@@ -24,7 +24,7 @@ export default function PolePosition({ project }) {
       </header>
 
       <div className="grid gap-5 p-4 md:p-6 lg:grid-cols-2 lg:gap-8">
-        <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border border-line bg-bg">
+        <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-xl border border-line bg-bg">
           {project.image ? (
             <img
               src={project.image}

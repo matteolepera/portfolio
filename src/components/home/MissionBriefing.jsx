@@ -9,7 +9,7 @@ export default function MissionBriefing({ project }) {
   const lastLap = project.laps.length - 1;
 
   return (
-    <article className="border-l-4 border-accent bg-surface transition-colors duration-500">
+    <article className="rounded-2xl border-l-4 border-accent bg-surface transition-colors duration-500">
       <header className="flex flex-wrap items-center gap-x-3 gap-y-2 px-4 pt-4 md:px-6 md:pt-5">
         <span
           aria-hidden="true"
