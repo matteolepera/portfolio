@@ -2,12 +2,14 @@ import { profile } from "../../content/profile";
 import { featuredProject, projects } from "../../content/projects";
 import { useTheme } from "../../theme/themeContext";
 import SectionHeading from "../ui/SectionHeading";
-import FeaturedProject from "./FeaturedProject";
+import MissionBriefing from "./MissionBriefing";
 import MissionList from "./MissionList";
+import PolePosition from "./PolePosition";
 import StartingGrid from "./StartingGrid";
 
 export default function Projects() {
   const { theme } = useTheme();
+  const isVi = theme === "vi";
 
   return (
     <section
@@ -31,15 +33,21 @@ export default function Projects() {
           }
         />
 
-        <FeaturedProject project={featuredProject} />
-
-        <div className="mt-6">
-          {theme === "vi" ? (
-            <MissionList projects={projects} />
-          ) : (
-            <StartingGrid projects={projects} />
-          )}
-        </div>
+        {isVi ? (
+          <>
+            <MissionBriefing project={featuredProject} />
+            <div className="mt-6">
+              <MissionList projects={projects} />
+            </div>
+          </>
+        ) : (
+          <>
+            <PolePosition project={featuredProject} />
+            <div className="mt-3.5">
+              <StartingGrid projects={projects} />
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
