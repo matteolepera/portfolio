@@ -5,11 +5,13 @@ import LapList from "../components/project/LapList";
 import StackBadges from "../components/ui/StackBadges";
 import { getProject } from "../content/projects";
 import useSectionNavigation from "../hooks/useSectionNavigation";
+import { useTheme } from "../theme/themeContext";
 
 export default function ProjectPage() {
   const { id } = useParams();
   const project = getProject(id);
   const goToSection = useSectionNavigation();
+  const { theme } = useTheme();
 
   if (!project) return <Navigate to="/" replace />;
 
@@ -36,9 +38,25 @@ export default function ProjectPage() {
 
         <header className="mt-6 flex flex-wrap items-end gap-x-10 gap-y-6">
           <div className="min-w-0 flex-[999_1_480px]">
-            <p className="text-5xl leading-none font-extrabold text-accent-text italic [font-stretch:75%] md:text-6xl">
-              {project.position}
-            </p>
+            {theme === "vi" ? (
+              <div className="flex items-center gap-3">
+                <span
+                  aria-hidden="true"
+                  className="flex size-12 items-center justify-center rounded-full bg-hi text-xl font-black text-bg md:size-14 md:text-2xl"
+                >
+                  {project.name.charAt(0)}
+                </span>
+                <p className="text-lg font-black text-accent uppercase italic md:text-xl">
+                  {project.position === "P1"
+                    ? "Missione in corso"
+                    : "Missione completata"}
+                </p>
+              </div>
+            ) : (
+              <p className="text-5xl leading-none font-extrabold text-accent-text italic [font-stretch:75%] md:text-6xl">
+                {project.position}
+              </p>
+            )}
             <h1 className="display-title mt-3 text-[clamp(34px,6vw,72px)] leading-[0.95]">
               {project.name}
             </h1>
