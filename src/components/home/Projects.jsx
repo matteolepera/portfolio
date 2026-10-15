@@ -1,14 +1,18 @@
 import { profile } from "../../content/profile";
 import { featuredProject, projects } from "../../content/projects";
+import { useTheme } from "../../theme/themeContext";
 import SectionHeading from "../ui/SectionHeading";
 import FeaturedProject from "./FeaturedProject";
-import ProjectRow from "./ProjectRow";
+import MissionList from "./MissionList";
+import StartingGrid from "./StartingGrid";
 
 export default function Projects() {
+  const { theme } = useTheme();
+
   return (
     <section
       id="progetti"
-      className="scroll-mt-6 lg:scroll-mt-[88px] border-t border-line"
+      className="scroll-mt-6 border-t border-line lg:scroll-mt-[88px]"
     >
       <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20 lg:py-24">
         <SectionHeading
@@ -29,10 +33,12 @@ export default function Projects() {
 
         <FeaturedProject project={featuredProject} />
 
-        <div className="mt-4 border-t border-line">
-          {projects.map((project) => (
-            <ProjectRow key={project.id} project={project} />
-          ))}
+        <div className="mt-6">
+          {theme === "vi" ? (
+            <MissionList projects={projects} />
+          ) : (
+            <StartingGrid projects={projects} />
+          )}
         </div>
       </div>
     </section>
