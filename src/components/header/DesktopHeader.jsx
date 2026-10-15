@@ -4,7 +4,7 @@ import { profile } from "../../content/profile";
 import { sectors } from "../../content/sectors";
 import useScrollSpy from "../../hooks/useScrollSpy";
 import LiveryCoin from "../nav/LiveryCoin";
-import { scrollToSection } from "../../utils/scrollToSection";
+import useSectionNavigation from "../../hooks/useSectionNavigation";
 
 const SECTOR_IDS = sectors.map((sector) => sector.id);
 
@@ -24,6 +24,7 @@ export default function DesktopHeader() {
   const slotRef = useRef(null);
   const { activeId, docked } = useScrollSpy(SECTOR_IDS);
   const activeIndex = SECTOR_IDS.indexOf(activeId);
+  const goToSection = useSectionNavigation();
 
   return (
     <div className="pointer-events-none fixed inset-x-0 top-0 z-20 hidden px-6 pt-4 lg:block">
@@ -54,8 +55,8 @@ export default function DesktopHeader() {
             return (
               <a
                 key={sector.id}
-                href={`#${sector.id}`}
-                onClick={(event) => scrollToSection(event, sector.id)}
+                href={`/#${sector.id}`}
+                onClick={(event) => goToSection(event, sector.id)}
                 aria-current={state === "active" ? "location" : undefined}
                 className="flex min-h-11 min-w-0 flex-1 flex-col justify-center gap-[7px] px-0.5 py-1"
               >
