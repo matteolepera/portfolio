@@ -8,7 +8,11 @@ export const featuredProject = {
   stack: ["Laravel", "React", "Tailwind", "MySQL"],
   image: null,
   laps: [
-    { id: 1, text: "L'idea parte con Node.js e MySQL.", short: "Idea in Node.js e MySQL" },
+    {
+      id: 1,
+      text: "L'idea parte con Node.js e MySQL.",
+      short: "Idea in Node.js e MySQL",
+    },
     {
       id: 2,
       text: "Rifatto da zero: API REST in Laravel e frontend React in due repository.",
@@ -20,6 +24,7 @@ export const featuredProject = {
       short: "Admin, Sanctum e multilingua",
     },
   ],
+  subtitle: "Archivio Ferrari",
   linkLabel: "Segui la rivelazione su LinkedIn",
   linkUrl: "https://www.linkedin.com/in/matteo-le-pera/",
   position: "P1",

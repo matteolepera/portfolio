@@ -1,0 +1,123 @@
+import { IconCheck } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
+import StackBadges from "../ui/StackBadges";
+
+const LABEL =
+  "text-[11px] font-semibold tracking-[0.08em] uppercase [font-stretch:75%]";
+
+export default function MissionBriefing({ project }) {
+  const lastLap = project.laps.length - 1;
+
+  return (
+    <article className="border-l-4 border-accent bg-surface transition-colors duration-500">
+      <header className="flex flex-wrap items-center gap-x-3 gap-y-2 px-4 pt-4 md:px-6 md:pt-5">
+        <span
+          aria-hidden="true"
+          className="flex size-10 items-center justify-center rounded-full bg-hi text-lg font-black text-bg md:size-12 md:text-xl"
+        >
+          {project.name.charAt(0)}
+        </span>
+        <span className={`${LABEL} text-muted`}>Missione principale</span>
+        <span className="ml-auto text-xs font-black text-accent uppercase italic">
+          In corso
+        </span>
+      </header>
+
+      <div className="grid gap-6 p-4 md:p-6 lg:grid-cols-2 lg:gap-8">
+        {/* Foto attaccata alla bacheca */}
+        <div className="relative px-2 pt-3">
+          <div className="-rotate-3 bg-ink p-1.5 pb-2 shadow-[0_10px_24px_rgba(0,0,0,0.35)]">
+            <div className="flex aspect-[16/10] items-center justify-center overflow-hidden bg-bg">
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={`Anteprima di ${project.name}`}
+                  width="1600"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
+                  className="size-full object-cover"
+                />
+              ) : (
+                <span className={`${LABEL} text-muted`}>
+                  [Screenshot in arrivo]
+                </span>
+              )}
+            </div>
+            <p className="mt-1.5 text-xs font-bold text-bg italic">
+              Obiettivo: {project.subtitle}
+            </p>
+          </div>
+          <span
+            aria-hidden="true"
+            className="absolute top-0 left-1/2 h-4 w-14 -translate-x-1/2 -rotate-3 bg-hi/85"
+          />
+        </div>
+
+        <div className="min-w-0">
+          <h3 className="text-3xl leading-none font-black text-hi italic md:text-4xl">
+            {project.name}
+          </h3>
+          <p className="mt-3 text-muted md:text-lg">{project.description}</p>
+
+          <p className={`${LABEL} mt-6 mb-2 text-muted`}>Obiettivi</p>
+          <ol className="flex flex-col gap-1.5 text-sm">
+            {project.laps.map((lap, index) => {
+              const current = index === lastLap;
+
+              return (
+                <li
+                  key={lap.id}
+                  className={`flex items-center gap-2.5 ${current ? "font-bold text-[#ffc857]" : "text-muted"}`}
+                >
+                  {current ? (
+                    <span
+                      aria-hidden="true"
+                      className="size-3 shrink-0 border-2 border-current"
+                    />
+                  ) : (
+                    <IconCheck
+                      size={14}
+                      stroke={3}
+                      aria-hidden="true"
+                      className="shrink-0 text-[#72f1b8]"
+                    />
+                  )}
+                  <span className={current ? "" : "line-through"}>
+                    {lap.short}
+                  </span>
+                  <span className="sr-only">
+                    {current ? "in corso" : "completato"}
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
+
+          <StackBadges
+            role={project.role}
+            stack={project.stack}
+            className="mt-5"
+          />
+
+          <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-1">
+            <Link
+              to={`/progetti/${project.id}`}
+              className={`${LABEL} py-2 text-[13px] text-accent`}
+            >
+              Avvia la missione →
+            </Link>
+            <a
+              href={project.linkUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="py-2 text-sm text-muted"
+            >
+              {project.linkLabel} ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
