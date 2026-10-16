@@ -24,34 +24,42 @@ export default function MissionBriefing({ project }) {
       </header>
 
       <div className="grid gap-6 p-4 md:p-6 lg:grid-cols-2 lg:gap-8">
-        {/* Foto attaccata alla bacheca */}
-        <div className="relative px-2 pt-3">
-          <div className="-rotate-3 bg-ink p-1.5 pb-2 shadow-[0_10px_24px_rgba(0,0,0,0.35)]">
-            <div className="flex aspect-[16/10] items-center justify-center overflow-hidden bg-bg">
-              {project.image ? (
-                <img
-                  src={project.image}
-                  alt={`Anteprima di ${project.name}`}
-                  width="1600"
-                  height="1000"
-                  loading="lazy"
-                  decoding="async"
-                  className="size-full object-cover"
-                />
-              ) : (
-                <span className={`${LABEL} text-muted`}>
-                  [Screenshot in arrivo]
-                </span>
-              )}
+        {/* Schermata di caricamento della missione */}
+        <div className="self-start overflow-hidden rounded-xl border border-line bg-bg">
+          <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-surface">
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={`Anteprima di ${project.name}`}
+                width="1600"
+                height="1000"
+                loading="lazy"
+                decoding="async"
+                className="size-full object-cover"
+              />
+            ) : (
+              <span className={`${LABEL} text-muted`}>
+                [Screenshot in arrivo]
+              </span>
+            )}
+
+            <div
+              aria-hidden="true"
+              className="absolute bottom-3 -left-3 skew-x-[-14deg] bg-accent py-0.5 pr-4 pl-6 md:bottom-5 md:py-1 md:pr-5 md:pl-7"
+            >
+              <span className="block skew-x-[14deg] text-sm font-black text-on-accent uppercase italic md:text-base">
+                {project.subtitle}
+              </span>
             </div>
-            <p className="mt-1.5 text-xs font-bold text-bg italic">
-              Obiettivo: {project.subtitle}
-            </p>
           </div>
-          <span
-            aria-hidden="true"
-            className="absolute top-0 left-1/2 h-4 w-14 -translate-x-1/2 -rotate-3 bg-hi/85"
-          />
+
+          <div className="flex items-center justify-end gap-2 bg-[#0b0014] px-3.5 py-2">
+            <span
+              aria-hidden="true"
+              className="size-3.5 animate-spin rounded-full border-2 border-hi border-t-transparent motion-reduce:animate-none"
+            />
+            <span className={`${LABEL} text-ink`}>Caricamento</span>
+          </div>
         </div>
 
         <div className="min-w-0">
