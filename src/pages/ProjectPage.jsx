@@ -14,6 +14,7 @@ import { useProject } from "../hooks/useProjects";
 import useSectionNavigation from "../hooks/useSectionNavigation";
 import { useTheme } from "../theme/themeContext";
 import LoadingScreen from "../components/loading/LoadingScreen";
+import NotFound from "./NotFound";
 
 function ObjectiveList({ laps }) {
   const lastLap = laps.length - 1;
@@ -98,7 +99,7 @@ export default function ProjectPage() {
     );
   }
 
-  if (!project) return <Navigate to="/" replace />;
+  if (!project) return <NotFound />;
 
   const isVi = theme === "vi";
   const inProgress = project.position === "P1";

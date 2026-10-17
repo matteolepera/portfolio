@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import DefaultLayouts from "./layouts/DefaultLayouts";
 import Home from "./pages/Home";
 import ProjectPage from "./pages/ProjectPage";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -10,8 +11,8 @@ export default function App() {
         <Route element={<DefaultLayouts />}>
           <Route path="/" element={<Home />} />
           <Route path="/progetti/:id" element={<ProjectPage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
