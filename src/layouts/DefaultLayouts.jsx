@@ -4,6 +4,7 @@ import DesktopHeader from "../components/header/DesktopHeader";
 import Footer from "../components/Footer";
 import BottomBar from "../components/nav/BottomBar";
 import BackToTop from "../components/nav/BackToTop";
+import InitialLoader from "../components/loading/InitialLoader";
 
 export default function DefaultLayouts() {
   const location = useLocation();
@@ -14,6 +15,7 @@ export default function DefaultLayouts() {
 
   return (
     <>
+      <InitialLoader />
       <DesktopHeader />
       <main id="top">
         <Outlet />
