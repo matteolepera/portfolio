@@ -14,3 +14,10 @@ createRoot(document.getElementById("root")).render(
     </HelmetProvider>
   </StrictMode>,
 );
+
+import { supabase } from "./lib/supabase";
+
+supabase
+  .from("projects")
+  .select("id, name")
+  .then(({ data, error }) => console.log(data, error));
