@@ -9,7 +9,8 @@ import MissionPassed from "../components/project/MissionPassed";
 import OnboardCarousel from "../components/project/OnboardCarousel";
 import TechSheet from "../components/project/TechSheet";
 import StackBadges from "../components/ui/StackBadges";
-import { getProject } from "../content/projects";
+import LoadError from "../components/ui/LoadError";
+import { useProject } from "../hooks/useProjects";
 import useSectionNavigation from "../hooks/useSectionNavigation";
 import { useTheme } from "../theme/themeContext";
 
@@ -58,11 +59,53 @@ function ObjectiveList({ laps }) {
   );
 }
 
+function ProjectPageSkeleton() {
+  return (
+    <>
+      <div aria-hidden="true" className="hidden h-24 lg:block" />
+      <div
+        aria-busy="true"
+        className="mx-auto flex max-w-[1200px] animate-pulse flex-col gap-6 px-5 pt-10 pb-16 motion-reduce:animate-none md:px-8 md:pt-14 lg:pt-12"
+      >
+        <span className="sr-only">Caricamento del progetto</span>
+        <div className="h-4 w-40 rounded bg-surface" />
+        <div className="h-14 w-24 rounded bg-surface" />
+        <div className="h-12 w-2/3 rounded bg-surface" />
+        <div className="h-5 w-full max-w-2xl rounded bg-surface" />
+        <div className="aspect-video w-full rounded-2xl bg-surface" />
+      </div>
+    </>
+  );
+}
+
 export default function ProjectPage() {
   const { id } = useParams();
-  const project = getProject(id);
+  const {
+    data: project,
+    isPending,
+    isError,
+    refetch,
+    isFetching,
+  } = useProject(id);
   const goToSection = useSectionNavigation();
   const { theme } = useTheme();
+
+  if (isPending) return <ProjectPageSkeleton />;
+
+  if (isError) {
+    return (
+      <>
+        <div aria-hidden="true" className="hidden h-24 lg:block" />
+        <div className="mx-auto max-w-[1200px] px-5 pt-10 pb-16 md:px-8 md:pt-14 lg:pt-12">
+          <LoadError
+            message="Non riesco a caricare questo progetto in questo momento."
+            onRetry={refetch}
+            retrying={isFetching}
+          />
+        </div>
+      </>
+    );
+  }
 
   if (!project) return <Navigate to="/" replace />;
 

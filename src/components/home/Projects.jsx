@@ -1,15 +1,48 @@
 import { profile } from "../../content/profile";
-import { featuredProject, projects } from "../../content/projects";
+import { useProjects } from "../../hooks/useProjects";
 import { useTheme } from "../../theme/themeContext";
+import LoadError from "../ui/LoadError";
 import SectionHeading from "../ui/SectionHeading";
 import MissionBriefing from "./MissionBriefing";
 import MissionList from "./MissionList";
 import PolePosition from "./PolePosition";
+import ProjectsSkeleton from "./ProjectsSkeleton";
 import StartingGrid from "./StartingGrid";
+
+function ProjectsContent({ isVi, featured, others }) {
+  if (isVi) {
+    return (
+      <>
+        {featured && <MissionBriefing project={featured} />}
+        <div className="mt-6">
+          <MissionList projects={others} />
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <>
+      {featured && <PolePosition project={featured} />}
+      <div className="mt-3.5">
+        <StartingGrid projects={others} />
+      </div>
+    </>
+  );
+}
 
 export default function Projects() {
   const { theme } = useTheme();
-  const isVi = theme === "vi";
+  const {
+    data: projects,
+    isPending,
+    isError,
+    refetch,
+    isFetching,
+  } = useProjects();
+
+  const featured = projects?.find((project) => project.featured);
+  const others = projects?.filter((project) => !project.featured) ?? [];
 
   return (
     <section
@@ -33,20 +66,20 @@ export default function Projects() {
           }
         />
 
-        {isVi ? (
-          <>
-            <MissionBriefing project={featuredProject} />
-            <div className="mt-6">
-              <MissionList projects={projects} />
-            </div>
-          </>
-        ) : (
-          <>
-            <PolePosition project={featuredProject} />
-            <div className="mt-3.5">
-              <StartingGrid projects={projects} />
-            </div>
-          </>
+        {isPending && <ProjectsSkeleton />}
+        {isError && (
+          <LoadError
+            message="Non riesco a caricare i progetti in questo momento."
+            onRetry={refetch}
+            retrying={isFetching}
+          />
+        )}
+        {projects && (
+          <ProjectsContent
+            isVi={theme === "vi"}
+            featured={featured}
+            others={others}
+          />
         )}
       </div>
     </section>
