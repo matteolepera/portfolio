@@ -77,7 +77,7 @@ export default function ProjectPage() {
     return (
       <>
         <div aria-hidden="true" className="hidden h-24 lg:block" />
-        <div className="mx-auto flex min-h-[60vh] max-w-[1200px] items-center justify-center px-5 py-16 md:px-8">
+        <div className="relative mx-auto flex min-h-[60vh] max-w-[1200px] items-center justify-center overflow-hidden rounded-2xl px-5 py-16 md:px-8">
           <LoadingScreen />
         </div>
       </>
