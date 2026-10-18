@@ -1,4 +1,5 @@
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import DeviceFrame from "./DeviceFrame";
 import useCarousel from "../../hooks/useCarousel";
 
 const LABEL = "font-semibold tracking-[0.08em] uppercase [font-stretch:75%]";
@@ -26,12 +27,11 @@ export default function OnboardCarousel({ images, projectName }) {
       {...bind}
       className="overflow-hidden rounded-2xl border border-line bg-surface outline-offset-4 focus-visible:outline-2 focus-visible:outline-accent"
     >
-      <div className="relative flex aspect-video items-center justify-center bg-bg">
-        <img
+      <div className="relative flex aspect-video items-center justify-center bg-bg px-4 pt-11 pb-4 md:px-8 md:pt-14 md:pb-8">
+        <DeviceFrame
           key={current.src}
-          src={current.src}
-          alt={current.alt}
-          className="size-full animate-panel-in object-contain motion-reduce:animate-none"
+          image={current}
+          className="animate-panel-in motion-reduce:animate-none"
         />
 
         <span
