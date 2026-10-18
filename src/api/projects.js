@@ -39,6 +39,7 @@ function toProject(row) {
       src: image.src,
       label: image.label,
       alt: image.alt,
+      device: image.device,
     })),
   };
 }

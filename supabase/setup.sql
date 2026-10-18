@@ -184,3 +184,8 @@ alter table public.projects add column repos jsonb not null default '[]';
 
 -- Il vecchio campo con un solo repository non serve più
 alter table public.projects drop column repo_url;
+
+-- Tipo di dispositivo di ogni schermata, per la cornice del carosello
+alter table public.project_images
+add column device text not null default 'desktop'
+check (device in ('desktop', 'tablet', 'mobile'));
