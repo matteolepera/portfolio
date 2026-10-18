@@ -54,17 +54,22 @@ export default function MissionPassed({ project, inProgress }) {
       </div>
 
       {project.repos.length > 0 && (
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
+        <div className="mt-6 flex flex-wrap justify-center gap-2 lg:gap-3">
           {project.repos.map((repo) => (
             <a
               key={repo.url}
               href={repo.url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-accent px-6 font-bold text-on-accent"
+              aria-label={`${repo.label} su GitHub`}
+              className="inline-flex min-h-11 items-center gap-3 rounded-full bg-accent px-4 text-sm font-bold text-on-accent lg:min-h-[52px] lg:gap-2.5 lg:px-6 lg:text-base"
             >
-              <IconBrandGithub size={20} aria-hidden="true" />
-              {repo.label} su GitHub
+              <IconBrandGithub
+                aria-hidden="true"
+                className="size-4 lg:size-5"
+              />
+              {repo.label}
+              <span className="hidden lg:inline">su GitHub</span>
             </a>
           ))}
         </div>
