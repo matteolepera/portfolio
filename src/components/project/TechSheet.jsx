@@ -32,8 +32,8 @@ export default function TechSheet({ project }) {
 
         {project.repos.length > 0 && (
           <div className="contents">
-            <dt className={`${LABEL} self-start pt-0.5 text-muted`}>Box</dt>
-            <dd className="flex flex-col gap-1">
+            <dt className={`${LABEL} self-center text-muted`}>Box</dt>
+            <dd className="flex flex-wrap gap-x-4 gap-y-1">
               {project.repos.map((repo) => (
                 <a
                   key={repo.url}
