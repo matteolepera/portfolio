@@ -30,19 +30,22 @@ export default function TechSheet({ project }) {
           </div>
         ))}
 
-        {project.repoUrl && (
+        {project.repos.length > 0 && (
           <div className="contents">
-            <dt className={`${LABEL} self-center text-muted`}>Box</dt>
-            <dd>
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 font-bold text-accent-text"
-              >
-                <IconBrandGithub size={16} aria-hidden="true" />
-                Codice su GitHub ↗
-              </a>
+            <dt className={`${LABEL} self-start pt-0.5 text-muted`}>Box</dt>
+            <dd className="flex flex-col gap-1">
+              {project.repos.map((repo) => (
+                <a
+                  key={repo.url}
+                  href={repo.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 font-bold text-accent-text"
+                >
+                  <IconBrandGithub size={16} aria-hidden="true" />
+                  {repo.label} ↗
+                </a>
+              ))}
             </dd>
           </div>
         )}

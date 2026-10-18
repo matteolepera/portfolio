@@ -53,16 +53,21 @@ export default function MissionPassed({ project, inProgress }) {
         </dd>
       </div>
 
-      {project.repoUrl && (
-        <a
-          href={project.repoUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-6 inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-accent px-6 font-bold text-on-accent"
-        >
-          <IconBrandGithub size={20} aria-hidden="true" />
-          Codice su GitHub
-        </a>
+      {project.repos.length > 0 && (
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          {project.repos.map((repo) => (
+            <a
+              key={repo.url}
+              href={repo.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-accent px-6 font-bold text-on-accent"
+            >
+              <IconBrandGithub size={20} aria-hidden="true" />
+              {repo.label} su GitHub
+            </a>
+          ))}
+        </div>
       )}
     </header>
   );
