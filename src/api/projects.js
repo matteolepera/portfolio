@@ -15,7 +15,7 @@ function toProject(row) {
     role: row.role,
     stack: row.stack ?? [],
     image: row.image,
-    repoUrl: row.repo_url,
+    repos: row.repos ?? [],
     linkLabel: row.link_label,
     linkUrl: row.link_url,
     season: row.season,
@@ -39,6 +39,7 @@ function toProject(row) {
       src: image.src,
       label: image.label,
       alt: image.alt,
+      device: image.device,
     })),
   };
 }

@@ -174,3 +174,18 @@ insert into public.project_images (project_id, sort_order, src, label, alt) valu
 -- ---------------------------------------------------------------------
 
 revoke execute on function public.nome_funzione() from public, anon, authenticated;
+
+-- ---------------------------------------------------------------------
+-- 6. Modifiche successive
+-- ---------------------------------------------------------------------
+
+-- Più repository per progetto, ognuno con la sua etichetta
+alter table public.projects add column repos jsonb not null default '[]';
+
+-- Il vecchio campo con un solo repository non serve più
+alter table public.projects drop column repo_url;
+
+-- Tipo di dispositivo di ogni schermata, per la cornice del carosello
+alter table public.project_images
+add column device text not null default 'desktop'
+check (device in ('desktop', 'tablet', 'mobile'));
